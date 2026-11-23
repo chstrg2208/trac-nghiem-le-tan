@@ -1,0 +1,2256 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0F2942">
+<meta name="description" content="Ôn tập trắc nghiệm Lễ tân Ngoại giao: 140 câu Đề 1 và Đề 2 kèm đáp án chuẩn, chế độ Luyện tập, Thi thử bấm giờ và chia sẻ nhanh qua mã QR.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230F2942'/%3E%3Cpath d='M9 10h14v2H9zm0 5h14v2H9zm0 5h9v2H9z' fill='%23F7F6F2'/%3E%3Ccircle cx='22' cy='21' r='3' fill='%230F766E'/%3E%3C/svg%3E">
+<title>Lễ tân Ngoại giao · Ôn tập Trắc nghiệm (140 câu)</title>
+<style>
+  :root {
+    --bg-desk: #E2E8F0;
+    --bg-page: #F8F9FB;
+    --bg-strip: #EEF1F6;
+    --bg-card: #FFFFFF;
+    --navy: #0F2942;
+    --navy-soft: #1B3B5A;
+    --ink: #0F2942;
+    --ink-body: #1E293B;
+    --ink-muted: #475569;
+    --border: #D5DCE4;
+    --border-strong: #94A3B8;
+    --teal: #0F766E;
+    --teal-bg: #ECFDF5;
+    --teal-text: #064E3B;
+    --crimson: #B91C1C;
+    --crimson-bg: #FEF2F2;
+    --crimson-text: #7F1D1D;
+    --amber: #B45309;
+    --amber-bg: #FEF3C7;
+    --amber-text: #78350F;
+    --selected-bg: #EFF4F9;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 12px;
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: var(--bg-page);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+  ::selection { background: var(--navy); color: var(--bg-page); }
+  button, input { font-family: inherit; }
+
+  .tnum { font-variant-numeric: tabular-nums; }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+  }
+
+  /* Outer App Frame */
+  .app-frame {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-page);
+    width: 100%;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    body { background: var(--bg-desk); padding: 14px; }
+    .app-frame {
+      max-width: 1080px;
+      height: calc(100dvh - 28px);
+      margin: 0 auto;
+      border: 1px solid #C6CFD9;
+      border-radius: 14px;
+    }
+  }
+
+  /* Header Bar */
+  .topbar {
+    background: var(--navy);
+    color: var(--bg-page);
+    padding: 12px 16px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .toprow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .brand-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    min-width: 0;
+  }
+  h1.brand {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: #FFFFFF;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .brand-credit {
+    font-size: 11px;
+    font-weight: 500;
+    color: #CBD5E1;
+    white-space: nowrap;
+    display: none;
+  }
+  @media (min-width: 520px) { .brand-credit { display: inline; } }
+
+  .qr-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--navy-soft);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: var(--radius-sm);
+    padding: 6px 11px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    flex-shrink: 0;
+    min-height: 34px;
+  }
+  .qr-trigger:hover { background: #244B70; }
+  .qr-trigger:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }
+
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+  .tab {
+    appearance: none;
+    background: rgba(255, 255, 255, 0.08);
+    color: #E2E8F0;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--radius-sm);
+    padding: 7px 4px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    white-space: nowrap;
+  }
+  .tab:hover { background: rgba(255, 255, 255, 0.15); }
+  .tab.active {
+    background: var(--bg-page);
+    color: var(--navy);
+    border-color: var(--bg-page);
+  }
+  .tab:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 1px; }
+  .tab-count {
+    font-variant-numeric: tabular-nums;
+    opacity: 0.9;
+  }
+
+  /* Mode & Status Strip */
+  .statusstrip {
+    background: var(--bg-strip);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+  .mode-switch {
+    display: inline-flex;
+    background: #DCE2EA;
+    border: 1px solid #C5CEDB;
+    border-radius: var(--radius-sm);
+    padding: 2px;
+    gap: 2px;
+  }
+  .mode-btn {
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: #334155;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    min-height: 30px;
+  }
+  .mode-btn.active {
+    background: var(--teal);
+    color: #FFFFFF;
+  }
+  .mode-btn.exam-active {
+    background: var(--navy);
+    color: #FFFFFF;
+  }
+  .mode-btn:focus-visible { outline: 2px solid var(--navy); outline-offset: 1px; }
+
+  .status-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #334155;
+  }
+  .stat-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--ink);
+  }
+  .stat-pill.good { background: var(--teal-bg); border-color: #99F6E4; color: var(--teal-text); }
+  .stat-pill.warn { background: var(--crimson-bg); border-color: #FECACA; color: var(--crimson-text); }
+
+  .mini-action {
+    appearance: none;
+    border: 1px solid var(--border-strong);
+    background: var(--bg-card);
+    color: var(--ink);
+    border-radius: var(--radius-sm);
+    padding: 4px 10px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    min-height: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .mini-action.primary {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: #FFFFFF;
+  }
+  .mini-action:hover { opacity: 0.92; }
+  .mini-action:focus-visible { outline: 2px solid var(--navy); outline-offset: 1px; }
+
+  .progbar {
+    height: 3px;
+    background: var(--border);
+    flex-shrink: 0;
+  }
+  .progfill {
+    height: 100%;
+    width: 0%;
+    background: var(--teal);
+    transition: width 180ms ease;
+  }
+
+  /* Split Workspace on Desktop */
+  .workspace {
+    flex: 1;
+    display: flex;
+    min-height: 0;
+    overflow: hidden;
+  }
+  .stage-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+  }
+  .main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: #CBD5E1 transparent;
+  }
+  @media (min-width: 768px) {
+    .main { padding: 20px 24px; gap: 14px; }
+  }
+  .main::-webkit-scrollbar { width: 6px; }
+  .main::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+
+  /* Question Meta Row */
+  .qmeta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ink-muted);
+  }
+  .qmeta-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .qnum-label {
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .tag-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 7px;
+    border-radius: 4px;
+    background: var(--bg-strip);
+    border: 1px solid var(--border);
+    color: #334155;
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+  .flag-btn {
+    appearance: none;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--ink-muted);
+    border-radius: var(--radius-sm);
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    min-height: 32px;
+  }
+  .flag-btn.flagged {
+    background: var(--amber-bg);
+    border-color: #D97706;
+    color: var(--amber-text);
+  }
+  .flag-btn:focus-visible { outline: 2px solid var(--navy); outline-offset: 1px; }
+
+  /* Question Card */
+  .qcard {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+  }
+  @media (min-width: 768px) { .qcard { padding: 20px; } }
+  .qstem {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  @media (min-width: 768px) { .qstem { font-size: 17px; } }
+
+  /* Options */
+  .opts {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  .opt {
+    appearance: none;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    min-height: 52px;
+    font-size: 14.5px;
+    line-height: 1.44;
+    color: var(--ink-body);
+    cursor: pointer;
+    transition: border-color 120ms ease, background-color 120ms ease;
+  }
+  .opt:hover:not(:disabled) {
+    border-color: var(--border-strong);
+    background: #FAFAF8;
+  }
+  .opt:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+  .opt:disabled { cursor: default; }
+
+  .opt-badge {
+    min-width: 28px;
+    height: 28px;
+    border-radius: var(--radius-sm);
+    background: #F1F5F9;
+    border: 1px solid #CBD5E1;
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .opt-text { flex: 1; }
+  .opt-icon {
+    flex-shrink: 0;
+    margin-top: 4px;
+    display: none;
+  }
+
+  .opt.selected {
+    background: var(--selected-bg);
+    border-color: var(--navy);
+    box-shadow: inset 0 0 0 1px var(--navy);
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .opt.selected .opt-badge {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: #FFFFFF;
+  }
+
+  .opt.correct {
+    background: var(--teal-bg);
+    border-color: var(--teal);
+    box-shadow: inset 0 0 0 1px var(--teal);
+    color: var(--teal-text);
+    font-weight: 600;
+  }
+  .opt.correct .opt-badge {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #FFFFFF;
+  }
+  .opt.correct .opt-icon { display: inline-flex; color: var(--teal); }
+
+  .opt.wrong {
+    background: var(--crimson-bg);
+    border-color: var(--crimson);
+    box-shadow: inset 0 0 0 1px var(--crimson);
+    color: var(--crimson-text);
+    font-weight: 600;
+  }
+  .opt.wrong .opt-badge {
+    background: var(--crimson);
+    border-color: var(--crimson);
+    color: #FFFFFF;
+  }
+  .opt.wrong .opt-icon { display: inline-flex; color: var(--crimson); }
+
+  /* Feedback Strip */
+  .feedback {
+    border-radius: var(--radius-md);
+    padding: 11px 14px;
+    font-size: 13.5px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 1px solid transparent;
+  }
+  .feedback.correct {
+    background: var(--teal-bg);
+    border-color: #99F6E4;
+    color: var(--teal-text);
+  }
+  .feedback.wrong {
+    background: var(--crimson-bg);
+    border-color: #FECACA;
+    color: var(--crimson-text);
+  }
+  .feedback.neutral {
+    background: var(--bg-strip);
+    border-color: var(--border);
+    color: #334155;
+  }
+  .feedback-main {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Summary Banner inside Main */
+  .summary-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .summary-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .summary-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .score-big {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--teal);
+    line-height: 1;
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .summary-cell {
+    background: var(--bg-page);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px;
+    text-align: center;
+  }
+  .summary-cell-val {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .summary-cell-lbl {
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-top: 2px;
+  }
+  .summary-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  /* Empty Wrong State */
+  .empty-state {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .empty-state h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .empty-state p {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    max-width: 340px;
+    line-height: 1.5;
+  }
+
+  /* Bottom Thumb Dock */
+  .dock {
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    display: grid;
+    grid-template-columns: 1fr 1.25fr 1fr;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .dbtn {
+    appearance: none;
+    border: 1px solid #CBD5E1;
+    background: #F8FAFC;
+    color: var(--navy);
+    border-radius: var(--radius-sm);
+    padding: 10px 8px;
+    min-height: 46px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    white-space: nowrap;
+  }
+  .dbtn.primary {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: #FFFFFF;
+  }
+  .dbtn:disabled {
+    opacity: 0.42;
+    cursor: not-allowed;
+  }
+  .dbtn:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+
+  /* Desktop Right Ballot Rail */
+  .desktop-rail {
+    display: none;
+    width: 320px;
+    flex-shrink: 0;
+    background: var(--bg-page);
+    border-left: 1px solid var(--border);
+    flex-direction: column;
+    overflow: hidden;
+  }
+  @media (min-width: 1024px) {
+    .desktop-rail { display: flex; }
+    .dock { grid-template-columns: 1fr 1fr; }
+    .dock-ballot-btn { display: none; }
+  }
+
+  .rail-head {
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-strip);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .rail-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .rail-title {
+    margin: 0;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .ballot-filters {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  .filter-chip {
+    appearance: none;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--ink-muted);
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 11.5px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .filter-chip.active {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: #FFFFFF;
+  }
+
+  .ballot-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 16px;
+  }
+  .ballot-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+  }
+  @media (max-width: 1023px) {
+    .ballot-grid { grid-template-columns: repeat(7, 1fr); }
+  }
+  @media (max-width: 379px) {
+    .ballot-grid { grid-template-columns: repeat(5, 1fr); }
+  }
+  .bcell {
+    appearance: none;
+    position: relative;
+    height: 38px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--ink);
+    font-size: 12.5px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bcell.current {
+    border-color: var(--navy);
+    box-shadow: inset 0 0 0 1.5px var(--navy);
+  }
+  .bcell.ok { background: var(--teal); border-color: var(--teal); color: #FFFFFF; }
+  .bcell.bad { background: var(--crimson); border-color: var(--crimson); color: #FFFFFF; }
+  .bcell.picked { background: var(--navy); border-color: var(--navy); color: #FFFFFF; }
+  .bcell.flagged::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #F59E0B;
+  }
+  .bcell:focus-visible { outline: 2px solid var(--navy); outline-offset: 1px; }
+
+  .ballot-legend {
+    padding: 10px 16px;
+    border-top: 1px solid var(--border);
+    background: var(--bg-strip);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 11.5px;
+    color: #334155;
+  }
+  .leg-item { display: inline-flex; align-items: center; gap: 5px; }
+  .leg-dot { width: 10px; height: 10px; border-radius: 3px; border: 1px solid var(--border-strong); background: #FFFFFF; }
+  .leg-dot.ok { background: var(--teal); border-color: var(--teal); }
+  .leg-dot.bad { background: var(--crimson); border-color: var(--crimson); }
+  .leg-dot.picked { background: var(--navy); border-color: var(--navy); }
+  .leg-dot.flag { background: #F59E0B; border-color: #D97706; border-radius: 50%; }
+
+  /* Drawer & Modals */
+  .backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 41, 66, 0.56);
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 50;
+  }
+  .backdrop.open { display: flex; }
+  @media (min-width: 640px) {
+    .backdrop.modal-center { align-items: center; padding: 16px; }
+  }
+
+  .sheet {
+    width: 100%;
+    max-width: 560px;
+    max-height: 82dvh;
+    background: var(--bg-page);
+    border-radius: 16px 16px 0 0;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  @media (min-width: 640px) {
+    .backdrop.modal-center .sheet { border-radius: 14px; max-width: 440px; }
+  }
+  .sheet-head {
+    padding: 14px 16px;
+    background: var(--bg-strip);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .sheet-title {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .close-btn {
+    appearance: none;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--ink);
+    border-radius: var(--radius-sm);
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  /* QR Modal Content */
+  .qr-body {
+    padding: 18px 16px calc(18px + env(safe-area-inset-bottom));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    overflow-y: auto;
+  }
+  .qr-box {
+    width: 220px;
+    height: 220px;
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .qr-box svg { width: 100%; height: 100%; display: block; }
+  .qr-hint {
+    margin: 0;
+    font-size: 13px;
+    color: var(--ink-muted);
+    text-align: center;
+    line-height: 1.45;
+  }
+  .qr-url-row {
+    width: 100%;
+    display: flex;
+    gap: 6px;
+  }
+  .qr-input {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid var(--border-strong);
+    background: #FFFFFF;
+    color: var(--ink);
+    border-radius: var(--radius-sm);
+    padding: 8px 10px;
+    font-size: 12.5px;
+  }
+  .qr-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .confirm-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .confirm-text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-body);
+  }
+  .confirm-btns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="app-frame">
+  <header class="topbar">
+    <div class="toprow">
+      <div class="brand-wrap">
+        <h1 class="brand">Lễ tân Ngoại giao</h1>
+        <span class="brand-credit">· DO HONG DAI, M.A</span>
+      </div>
+      <button type="button" class="qr-trigger" id="btn-open-qr" aria-label="Mở mã QR chia sẻ">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v3h1M14 20h3M20 20h1v1"/></svg>
+        <span>Mã QR</span>
+      </button>
+    </div>
+    <nav class="tabs" aria-label="Chọn bộ đề">
+      <button type="button" class="tab active" data-deck="exam1">Đề 1 <span class="tab-count">(70)</span></button>
+      <button type="button" class="tab" data-deck="exam2">Đề 2 <span class="tab-count">(70)</span></button>
+      <button type="button" class="tab" data-deck="mixed">Trộn <span class="tab-count">(140)</span></button>
+      <button type="button" class="tab" data-deck="wrong">Câu sai <span class="tab-count" id="wrong-count">(0)</span></button>
+    </nav>
+  </header>
+
+  <div class="statusstrip">
+    <div class="mode-switch" role="group" aria-label="Chế độ ôn tập">
+      <button type="button" class="mode-btn active" data-mode="practice" id="btn-mode-practice">Luyện tập</button>
+      <button type="button" class="mode-btn" data-mode="exam" id="btn-mode-exam">Thi thử</button>
+    </div>
+    <div class="status-right tnum" id="status-right"></div>
+  </div>
+  <div class="progbar" aria-hidden="true"><div class="progfill" id="prog-fill"></div></div>
+
+  <div class="workspace">
+    <div class="stage-col">
+      <main class="main" id="main-stage"></main>
+
+      <footer class="dock">
+        <button type="button" class="dbtn" id="btn-prev">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          <span>Câu trước</span>
+        </button>
+        <button type="button" class="dbtn dock-ballot-btn" id="btn-open-ballot">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <span class="tnum" id="dock-ballot-label">Bảng câu</span>
+        </button>
+        <button type="button" class="dbtn primary" id="btn-next">
+          <span id="btn-next-label">Câu tiếp theo</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </footer>
+    </div>
+
+    <aside class="desktop-rail" aria-label="Bảng chọn nhanh câu hỏi">
+      <div class="rail-head">
+        <div class="rail-title-row">
+          <h2 class="rail-title tnum" id="desktop-rail-title">Bảng 70 câu</h2>
+          <button type="button" class="mini-action" id="btn-desktop-reset">Làm lại</button>
+        </div>
+        <div class="ballot-filters" id="desktop-filters"></div>
+      </div>
+      <div class="ballot-scroll">
+        <div class="ballot-grid" id="desktop-ballot"></div>
+      </div>
+      <div class="ballot-legend" id="desktop-legend"></div>
+    </aside>
+  </div>
+</div>
+
+<!-- Mobile Ballot Drawer -->
+<div class="backdrop" id="ballot-backdrop" aria-hidden="true">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+    <div class="sheet-head">
+      <h2 class="sheet-title tnum" id="drawer-title">Bảng chọn câu hỏi</h2>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button type="button" class="mini-action" id="btn-drawer-reset">Làm lại</button>
+        <button type="button" class="close-btn" id="btn-close-ballot" aria-label="Đóng bảng câu">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+    <div style="padding:10px 16px 0;" id="drawer-filters" class="ballot-filters"></div>
+    <div class="ballot-scroll">
+      <div class="ballot-grid" id="drawer-ballot"></div>
+    </div>
+    <div class="ballot-legend" id="drawer-legend"></div>
+  </div>
+</div>
+
+<!-- Share QR Modal -->
+<div class="backdrop modal-center" id="qr-backdrop" aria-hidden="true">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="qr-modal-title">
+    <div class="sheet-head">
+      <h2 class="sheet-title" id="qr-modal-title">Quét mã QR trên điện thoại</h2>
+      <button type="button" class="close-btn" id="btn-close-qr" aria-label="Đóng mã QR">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="qr-body">
+      <div class="qr-box" id="qr-svg-wrap"></div>
+      <p class="qr-hint" id="qr-hint-text">Mở camera điện thoại hoặc Zalo để quét mã và vào thẳng bộ đề 140 câu.</p>
+      <div class="qr-url-row">
+        <label for="qr-url-input" class="sr-only">Đường dẫn chia sẻ</label>
+        <input id="qr-url-input" class="qr-input tnum" type="url" spellcheck="false" autocomplete="off">
+      </div>
+      <div class="qr-actions">
+        <button type="button" class="dbtn" id="btn-copy-url">Sao chép link</button>
+        <button type="button" class="dbtn primary" id="btn-download-qr">Tải ảnh QR (.PNG)</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Inline Confirmation Modal -->
+<div class="backdrop modal-center" id="confirm-backdrop" aria-hidden="true">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+    <div class="sheet-head">
+      <h2 class="sheet-title" id="confirm-title">Xác nhận</h2>
+      <button type="button" class="close-btn" id="btn-close-confirm" aria-label="Hủy">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="confirm-body">
+      <p class="confirm-text" id="confirm-msg"></p>
+      <div class="confirm-btns">
+        <button type="button" class="dbtn" id="btn-confirm-cancel">Quay lại</button>
+        <button type="button" class="dbtn primary" id="btn-confirm-ok">Đồng ý</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  'use strict';
+
+  const RAW_BANK = [["1-1",1,1,"N","Theo chiết tự chữ Hán, thành tố \"Lễ\" (禮) trong thuật ngữ \"Lễ tân\" mang hàm nghĩa cốt lõi nào?",["Khách tham gia tiếp xúc hoặc đối tượng được đón tiếp.","Chuẩn mực xã hội, phép tắc ứng xử, trật tự tôn ti và nghi thức khuôn mẫu.","Tờ giấy đầu tiên được dán vào tập tài liệu để chứng thực pháp lý.","Thứ bậc ưu tiên dựa trên quy mô kinh tế của các quốc gia."],"B"],["1-2",1,2,"N","Thành tố \"Tân\" (賓) trong từ \"Lễ tân\" có nghĩa là gì?",["Khách, đối tượng tham gia tiếp xúc hoặc người được đón tiếp.","Người chủ trì sự kiện và điều hành các hoạt động khánh tiết.","Phép tắc ứng xử giữa các công chức trong cơ quan nhà nước.","Bản ghi nhớ tóm tắt các cuộc đàm phán chính trị."],"A"],["1-3",1,3,"H","Nguồn gốc từ nguyên phương Tây của thuật ngữ \"Protocol\" (Lễ tân) xuất phát từ từ Hy Lạp cổ nào?",["Diploma.","Protokollon.","Precedence.","Politike."],"B"],["1-4",1,4,"H","Ban đầu trong lịch sử Hy Lạp cổ đại, từ \"Protokollon\" dùng để chỉ đối tượng nào?",["Nghi thức đón tiếp các sứ thần tại các thành bang Hy Lạp cổ.","Thẻ kim loại chứng nhận đặc quyền công tác khi đi lại qua các vùng lãnh thổ.","Tờ giấy đầu tiên được dán vào một tập tài liệu để ghi tóm tắt nội dung và chứng thực tính pháp lý.","Bức thư ủy nhiệm của người đứng đầu chính phủ gửi đi."],"C"],["1-5",1,5,"H","Tính chất nào của lễ tân thể hiện việc xác định vị trí danh dự và thứ bậc ưu tiên giữa các bên tham gia dựa trên chức vụ, thâm niên hoặc thỏa thuận pháp lý?",["Tính quy phạm (Normative character).","Trật tự ngôi thứ (Precedence).","Tính biểu trưng (Symbolism).","Tính công cụ (Instrumentality)."],"B"],["1-6",1,6,"P","Bản chất thực sự của Lễ tân ngoại giao KHÔNG dừng lại ở các thao tác kỹ thuật hình thức thuần túy, mà là:",["Hoạt động tiếp thị thương mại nhằm thu hút nguồn vốn đầu tư trực tiếp.","Công cụ thể hiện trật tự danh dự, vị thế chính trị và bản sắc văn hóa của chủ thể tiếp đón.","Quy trình đón tiếp và xử lý thủ tục lưu trú khách hàng tại khách sạn.","Cơ chế giải quyết các tranh chấp thương mại dân sự tư nhân."],"B"],["1-7",1,7,"Đ","Điểm khác biệt cơ bản nhất về cơ sở quy phạm giữa Lễ tân nói chung và Lễ tân ngoại giao là gì?",["Lễ tân nói chung chịu sự điều chỉnh của Công ước Viên 1961, lễ tân ngoại giao theo quy chế nội bộ.","Lễ tân ngoại giao dựa trên Công ước Viên 1961 & 1963, tập quán quốc tế và pháp luật đối ngoại; lễ tân nói chung dựa trên tập quán văn hóa bản địa hoặc quy chế nội bộ doanh nghiệp.","Cả hai loại hình đều do Bộ Lễ triều đình phong kiến quy định và ban hành.","Lễ tân ngoại giao không mang tính pháp lý ràng buộc, lễ tân doanh nghiệp bắt buộc theo luật quốc tế."],"B"],["1-8",1,8,"Đ","Hệ quả sai sót trong Lễ tân ngoại giao khác biệt căn bản với lễ tân thông thường ở điểm nào?",["Chỉ dẫn đến khiển trách nội bộ hoặc mất thiện cảm cá nhân.","Gây thiệt hại về hợp đồng kinh tế của doanh nghiệp.","Có thể dẫn đến khủng hoảng chính trị, bị nước bạn gửi công hàm phản đối chính thức hoặc làm tổn hại bang giao quốc tế.","Làm phá vỡ thương hiệu của công ty trên thị trường chứng khoán."],"C"],["1-9",1,9,"P","Theo định nghĩa của nhà ngoại giao Ernest Satow, bản chất của ngoại giao là gì?",["Việc áp dụng trí tuệ và sự khôn khéo vào việc điều hành các mối quan hệ chính thức giữa các chính phủ.","Nghệ thuật áp đặt sức mạnh quân sự để giải quyết các tranh chấp lãnh thổ.","Hệ thống các nghi lễ cung đình nhằm phân định ngôi thứ đẳng cấp xã hội.","Thể chế siêu quốc gia có quyền tài phán trên toàn thế giới."],"A"],["1-10",1,10,"S","Mốc lịch sử năm 1250 gắn liền với sự kiện nào có ý nghĩa đặc biệt trong lịch sử điều ước quốc tế về quan hệ ngoại giao?",["Hội nghị thiết lập Liên bang các quốc gia châu Âu hiện đại.","Lần đầu tiên các quốc gia cam kết lập các đại sứ quán thường trú (giữa Anh và Đế quốc La Mã Thần thánh).","Thông qua Công ước quốc tế về quyền ưu đãi và miễn trừ ngoại giao.","Phân chia trật tự 7 hàm ngoại giao chuẩn mực."],"B"],["1-11",1,11,"H","Hiệp ước nào năm 1648 đã đặt nền móng cho hệ thống ngoại giao đa phương hiện đại và xác định hình thức các đại sứ quán thường xuyên?",["Hiệp ước Tilzitt.","Hiệp ước Viên.","Hiệp ước Westphalie.","Nghị định thư Aix-La-Chapelle."],"C"],["1-12",1,12,"N","Văn kiện lịch sử nào vào năm 1815 lần đầu tiên quy định rõ bậc hàm và xác lập 3 cấp ngôi thứ ngoại giao?",["Hiệp ước Viên năm 1815.","Tuyên bố Bangkok năm 1967.","Hiệp ước Tilzitt năm 1807.","Hiến chương Liên Hợp Quốc năm 1945."],"A"],["1-13",1,13,"V","Việt Nam chính thức tuyên bố tham gia Công ước Viên năm 1961 về Quan hệ Ngoại giao vào năm nào và với bao nhiêu điều bảo lưu?",["Năm 1964, không có điều bảo lưu.","Năm 1975, bảo lưu 1 điều.","Năm 1980, với 2 điều bảo lưu.","Năm 1995, bảo lưu 3 điều."],"C"],["1-14",1,14,"P","Nghị định hiện hành của Chính phủ Việt Nam quy định toàn diện về nghi lễ đối ngoại quốc gia và đón tiếp đoàn cấp cao nước ngoài là:",["Nghị định 15/2008/NĐ-CP.","Nghị định 145/2013/NĐ-CP.","Nghị định 18/2022/NĐ-CP.","Nghị định 24/2020/NĐ-CP."],"C"],["1-15",1,15,"Đ","Cơ quan chuyên trách trực thuộc Bộ Ngoại giao Việt Nam đóng vai trò tham mưu, quản lý và điều phối các nghi lễ đối ngoại nhà nước là:",["Vụ Văn hóa Đối ngoại và UNESCO.","Cục Lễ tân Nhà nước.","Ban Thư ký ASEAN Quốc gia.","Vụ Thông tin Báo chí."],"B"],["1-16",1,16,"V","Thời kỳ phong kiến độc lập (thế kỷ X - XIX) của Việt Nam, cơ quan triều đình nào trực tiếp phụ trách công tác lễ nghi và tiếp sứ thần phương Bắc?",["Bộ Binh.","Bộ Hộ.","Bộ Lễ.","Viện Cơ mật."],"C"],["1-17",1,17,"N","Vụ Lễ tân thuộc Bộ Ngoại giao nước Việt Nam Dân chủ Cộng hòa được chính thức thành lập vào năm nào?",["Năm 1945.","Năm 1954.","Năm 1975.","Năm 1986."],"B"],["1-18",1,18,"H","Theo Điều 14 Công ước Viên 1961, người đứng đầu cơ quan đại diện ngoại giao được chia thành mấy cấp bậc?",["2 cấp bậc.","3 cấp bậc.","4 cấp bậc.","7 cấp bậc."],"B"],["1-19",1,19,"H","Đại sứ đặc mệnh toàn quyền (Ambassador) và Sứ thần Tòa thánh (Nuncio) trình Quốc thư lên ai?",["Thủ tướng Chính phủ nước sở tại.","Nguyên thủ quốc gia nước tiếp nhận.","Bộ trưởng Bộ Ngoại giao nước tiếp nhận.","Chủ tịch Quốc hội nước tiếp nhận."],"B"],["1-20",1,20,"V","Cấp Đại biện thường trú (Chargé d'Affaires en pied) trình Thư ủy nhiệm lên chức danh nào của nước tiếp nhận?",["Bộ trưởng Bộ Ngoại giao.","Tổng thống hoặc Chủ tịch nước.","Trưởng Đoàn Ngoại giao tại nước sở tại.","Thủ tướng Chính phủ."],"A"],["1-21",1,21,"N","Có bao nhiêu Hàm ngoại giao chuẩn mực theo thứ bậc từ cao xuống thấp trong hệ thống ngoại giao?",["5 hàm.","7 hàm (Đại sứ, Công sứ, Tham tán, Bí thư thứ nhất, Bí thư thứ hai, Bí thư thứ ba, Tùy viên).","3 hàm (Đại sứ, Công sứ, Đại biện).","6 hàm tương ứng các bậc công chức nhà nước."],"B"],["1-22",1,22,"V","Căn cứ theo Điều 16 Công ước Viên 1961, tiêu chí duy nhất để xác định ngôi thứ danh dự (Precedence) giữa các Đại sứ cùng cấp là gì?",["Quy mô kinh tế, dân số và tiềm lực quân sự của nước cử đi.","Ngày và giờ chính thức trình Quốc thư lên Nguyên thủ quốc gia tiếp nhận.","Thâm niên công tác trong ngành ngoại giao của cá nhân Đại sứ.","Thứ tự bảng chữ cái tên tiếng Anh của quốc gia cử đi."],"B"],["1-23",1,23,"N","Khái niệm \"Trưởng Đoàn Ngoại giao\" (Doyen hoặc Dean of the Diplomatic Corps) dùng để chỉ ai?",["Cục trưởng Cục Lễ tân Nhà nước của quốc gia sở tại.","Vị Đại sứ có thâm niên trình Quốc thư lâu năm nhất tại nước tiếp nhận.","Vị Đại sứ đại diện cho nhóm 5 nước thường trực HĐBA LHQ (P5).","Vị Đại sứ có độ tuổi cao nhất trong ngoại giao đoàn."],"B"],["1-24",1,24,"N","Thủ tục \"Agrément\" (Điều 4 Công ước Viên 1961) trong công tác nhân sự ngoại giao là gì?",["Sự chấp thuận chính thức của nước tiếp nhận trước khi nước cử đi chỉ định người đứng đầu cơ quan đại diện.","Giấy phép cấp thị thực ngoại giao cho cán bộ tháp tùng đoàn.","Bản sao Quốc thư nộp cho Cục Lễ tân Nhà nước.","Thủ tục thông báo kết thúc nhiệm kỳ của Đại sứ."],"A"],["1-25",1,25,"H","Quyền tuyên bố một viên chức ngoại giao là \"Persona Non Grata\" (Điều 9 Công ước Viên 1961) cho phép nước tiếp nhận làm gì?",["Tước bỏ ngay quyền miễn trừ hình sự và đưa ra xét xử công khai.","Tuyên bố viên chức ngoại giao đó là \"nhân vật không được hoan nghênh\" bất kỳ lúc nào mà không cần giải thích lý do.","Đình chỉ mọi hoạt động giao tiếp của toàn bộ đại sứ quán.","Yêu cầu nước cử đi nộp phạt bồi thường ngoại giao."],"B"],["1-26",1,26,"P","Cơ sở lý luận pháp lý hiện đại công nhận Quyền ưu đãi và Miễn trừ ngoại giao dựa trên học thuyết nào?",["Thuyết đại diện tối cao của quân vương.","Thuyết ngoại lãnh thổ (Extraterritoriality theory).","Thuyết nhu cầu chức năng (Functional necessity theory).","Thuyết bình đẳng vũ trang quốc tế."],"C"],["1-27",1,27,"Đ","Theo Điều 22 Công ước Viên 1961, quy định nào sau đây là ĐÚNG về quyền bất khả xâm phạm về trụ sở cơ quan đại diện ngoại giao?",["Cảnh sát nước sở tại được quyền vào trụ sở nếu nghi ngờ có vi phạm hành chính.","Nhân viên công quyền của nước tiếp nhận tuyệt đối không được vào trụ sở nếu không có sự đồng ý của người đứng đầu cơ quan.","Tòa án nước sở tại có quyền khám xét và tịch thu tài sản của cơ quan đại diện khi có bản án dân sự.","Trụ sở chỉ được bảo vệ trong giờ làm việc hành chính."],"B"],["1-28",1,28,"Đ","Theo Điều 27 Công ước Viên 1961, quy định nào về Túi ngoại giao (Diplomatic Bag) là chuẩn xác?",["Túi ngoại giao có thể bị mở kiểm tra nếu cơ quan hải quan nghi ngờ có hàng cấm.","Được phép chứa đựng hàng hóa kinh doanh của viên chức ngoại giao.","Túi ngoại giao không được mở hoặc giữ lại dưới bất kỳ hình thức nào và chỉ chứa các tài liệu hoặc đồ dùng công vụ.","Nhân viên an ninh sân bay có quyền giữ lại túi ngoại giao quá 48 giờ để soi chiếu."],"C"],["1-29",1,29,"P","Viên chức ngoại giao được hưởng quyền miễn trừ tuyệt đối khỏi thẩm quyền tài phán hình sự của nước tiếp nhận, nhưng trong lĩnh vực dân sự và hành chính, họ KHÔNG được miễn trừ trong trường hợp nào dưới đây?",["Thuê nhà để phục vụ hoạt động công vụ của đại sứ quán.","Mua sắm phương tiện giao thông gắn biển số ngoại giao cho cơ quan.","Vụ kiện liên quan đến bất động sản tư nhân trên lãnh thổ nước tiếp nhận mà viên chức đứng tên cá nhân.","Các hoạt động ký kết hợp đồng đại diện cho nước cử đi."],"C"],["1-30",1,30,"P","Văn kiện thư tín ngoại giao nào được viết ở ngôi thứ ba, không ký tên cá nhân (chỉ ký nháy) và bắt buộc đóng dấu cơ quan?",["Công hàm ngoại giao (Note Verbale).","Công hàm cá nhân (Personal Note).","Thư triệu hồi (Letter of Recall).","Quốc thư (Letters of Credence)."],"A"],["1-31",1,31,"V","Đặc điểm kỹ thuật chuẩn mực của văn bản Giác thư (Aide-Mémoire) trong đàm phán ngoại giao là gì?",["Viết ở ngôi thứ nhất, do Nguyên thủ quốc gia ký và đóng quốc ấn.","Bản ghi ngắn gọn, không tiêu đề, không chữ ký hay con dấu, trao tận tay sau hội đàm để tóm tắt nội dung trao đổi miệng.","Bản phân tích sâu bối cảnh lịch sử đính kèm theo công hàm.","Thỏa thuận quốc tế ràng buộc pháp lý có hiệu lực tức thì."],"B"],["1-32",1,32,"N","Quy trình trình Quốc thư của Đại sứ mới đến nhận nhiệm vụ tại Việt Nam được tiến hành theo thứ tự nào?",["Trình trực tiếp lên Chủ tịch nước, sau đó gửi báo cáo cho Bộ Ngoại giao.","Nộp bản sao Quốc thư (Copie figurée) cho Cục Lễ tân Nhà nước, sau đó trình bản chính lên Chủ tịch nước tại Phủ Chủ tịch.","Nộp bản chính cho Thủ tướng Chính phủ, sau đó gặp Chủ tịch Quốc hội.","Trình Quốc thư trước Ngoại giao đoàn tại Trung tâm Hội nghị Quốc tế."],"B"],["1-33",1,33,"N","Theo Nghị định 18/2022/NĐ-CP, nghi thức đón tiếp nào sau đây chỉ áp dụng cho chuyến thăm Cấp Nhà nước (State Visit)?",["Tiệc chiêu đãi làm việc tinh gọn tại trụ sở đối tác.","Bắn 21 loạt đại bác chào mừng, duyệt Đội danh dự 3 quân chủng và xe mô tô hộ tống dẫn đường suốt tuyến.","Không cử quốc ca và không duyệt đội danh dự.","Chỉ đón tiễn xã giao tại phòng VIP sân bay."],"B"],["1-34",1,34,"H","Theo quy tắc sắp xếp chỗ ngồi trên xe ô tô ngoại giao 4 chỗ (nhìn theo hướng di chuyển từ trong xe ra), vị trí ghế danh dự số 1 (dành cho Khách chính VIP) nằm ở đâu?",["Ghế phụ phía trước, bên cạnh lái xe.","Hàng ghế sau, phía bên trái (sau lưng người lái xe).","Hàng ghế sau, phía bên phải (sau lưng ghế phụ).","Ngồi ngang hàng với người phiên dịch ở ghế trước."],"C"],["1-35",1,35,"V","Vị trí ghế phụ phía trước bên cạnh người lái xe trên ô tô ngoại giao được bố trí dành cho ai?",["Khách chính của đoàn.","Chủ nhà hoặc Trưởng ban tổ chức.","Sĩ quan bảo vệ hoặc Phiên dịch viên.","Phu nhân của Trưởng đoàn khách."],"C"],["1-36",1,36,"V","Khi xe ô tô chở Khách chính VIP đến sảnh khánh tiết, người lái xe phải cập lề theo nguyên tắc kỹ thuật nào?",["Đỗ giữa sảnh để cửa bên trái mở ra đối diện thảm đỏ.","Đỗ sao cho cánh cửa phía ghế số 1 (sau bên phải) mở ra trực diện với Chủ nhà đang đứng đón.","Đỗ sát cầu thang để cận vệ xuống trước mở cốp xe.","Đỗ xe cách xa vị trí đón 10 mét để kiểm tra an ninh."],"B"],["1-37",1,37,"V","Quy tắc treo Quốc kỳ trên xe ô tô chở Trưởng đoàn khách quốc tế tại nước sở tại được bố trí như thế nào (theo hướng nhìn của lái xe ra phía trước)?",["Cờ nước khách cắm bên phải đầu xe, cờ nước chủ nhà cắm bên trái đầu xe.","Cờ nước chủ nhà cắm bên phải đầu xe, cờ nước khách cắm bên trái đầu xe.","Cắm cả hai cờ của nước chủ nhà ở hai bên gương xe.","Chỉ cắm duy nhất một lá cờ nước khách ở chính giữa nóc xe."],"A"],["1-38",1,38,"V","Thao tác chuẩn mực khi lên xe ô tô đối ngoại đối với xe mui thấp, sàn thấp là gì?",["Nhảy thẳng hai chân vào trong xe rồi kéo cửa kính.","Bước chân phải vào trước rồi cúi gập lưng sát sàn.","Vịn tay vào mép mui xe để giữ thăng bằng, đặt cơ thể ngồi vào đệm ghế rồi nhẹ nhàng đưa chân vào xe.","Nhờ người đi cùng đẩy mạnh từ phía sau."],"C"],["1-39",1,39,"V","Khi treo hai lá Quốc kỳ trên lễ đài theo góc nhìn của khán giả từ dưới nhìn lên, vị trí của cờ danh dự (cờ nước chủ nhà) được đặt ở đâu?",["Ở bên phải của khán giả.","Ở bên trái của khán giả.","Treo thấp hơn cờ nước khách 15 cm.","Treo đè lên trên cờ nước khách."],"B"],["1-40",1,40,"V","Khi bố trí treo 3 lá Quốc kỳ trên diễn đàn (theo góc nhìn của người quan sát nhìn vào), thứ tự từ trái qua phải là:",["Cờ 1 – Cờ 2 – Cờ 3.","Cờ 2 – Cờ 1 (ở giữa) – Cờ 3.","Cờ 3 – Cờ 2 – Cờ 1.","Cờ 1 – Cờ 3 – Cờ 2."],"B"],["1-41",1,41,"V","Khi treo từ 4 lá Quốc kỳ trở lên theo quy tắc đối xứng gối nhau với tổng số cờ là số LẺ (ví dụ 5 cờ), thứ tự sắp xếp từ trái qua phải là:",["1 - 2 - 3 - 4 - 5.","5 - 3 - 1 - 2 - 4.","4 - 2 - 1 - 3 - 5.","2 - 4 - 1 - 5 - 3."],"C"],["1-42",1,42,"P","Nguyên tắc bất biến bắt buộc phải tuân thủ khi treo nhiều Quốc kỳ trong hội nghị quốc tế đa phương là gì?",["Kích thước cờ tỉ lệ thuận với diện tích quốc gia.","Tất cả các cờ phải có kích thước bằng nhau, cột cờ cao bằng nhau và đỉnh cột trang trí đồng nhất.","Có thể treo hai lá cờ trên cùng một cột cờ để tiết kiệm không gian.","Cờ của nước chủ tịch được cắm cao gấp đôi các cờ còn lại."],"B"],["1-43",1,43,"V","Quy chuẩn cài nút áo Veston nam 2 nút khi tham dự sự kiện ngoại giao quy định:",["Luôn cài cả 2 nút trong mọi tư thế đứng, ngồi và di chuyển.","Chỉ cài nút dưới, mở nút trên.","Khi đứng cài một nút trên, khi ngồi cởi toàn bộ nút, khi dừng lại bắt tay người quan trọng phải cài nút.","Cởi toàn bộ nút áo trong suốt buổi lễ."],"C"],["1-44",1,44,"H","Bộ trang phục ngoại giao Smoking (Black Tie) quy định điều cấm kỵ nào đối với nơ cổ của nam giới?",["Không được thắt nơ bằng lụa màu đen.","Tuyệt đối không thắt nơ màu trắng.","Không được thắt nơ màu xanh sẫm.","Bắt buộc dùng cà vạt bản lớn màu đỏ."],"B"],["1-45",1,45,"V","Đặc điểm trang phục chuẩn mực của Lễ phục Formal sau 18 giờ (White Tie) dành cho nam giới là gì?",["Áo vest đen ngắn kèm quần âu kẻ sọc xám.","Áo đuôi tôm đen, quần âu đen đồng bộ, bắt buộc thắt cà vạt/nơ trắng và mặc áo gile trắng.","Áo Smoking ve lụa bóng kèm nơ đen.","Áo Morning Coat dài trùm hông kết hợp mũ xám."],"B"],["1-46",1,46,"V","Quy chuẩn phụ trang và trang sức của nữ giới khi tham dự sự kiện đối ngoại chính thức quy định:",["Được phép đeo tối đa 10 món trang sức vàng bạc.","Không đeo quá 3 món trang sức cùng một lúc, không trang điểm quá đậm.","Thoải mái sửa sang trang phục và dặm lại phấn ngay trước mặt khách.","Bắt buộc mặc trang phục dạ hội xuyên thấu."],"B"],["1-47",1,47,"V","Nghi thức ký Sổ Vàng ngoại giao (Livre d'Or) thường diễn ra trong khoảng thời gian bao lâu?",["Kéo dài từ 2 đến 3 giờ.","Kéo dài từ 20 đến 40 phút.","Kéo dài suốt buổi tiệc chiêu đãi tối.","Chỉ diễn ra đúng 2 phút tại cửa xe."],"B"],["1-48",1,48,"V","Trong nghi thức ký Sổ Vàng ngoại giao, chủ nhà có bắt buộc phải tặng quà lưu niệm đắt tiền cho khách danh dự không?",["Bắt buộc, giá trị quà tặng phải tương đương chuyến thăm cấp nhà nước.","Không nhất thiết, vì việc tổ chức trang trọng, tiệc nhẹ và chữ ký của khách đã có giá trị thay thế cho quà tặng.","Bắt buộc phải tặng tranh mạ vàng cỡ lớn.","Tùy thuộc vào phán quyết của Tòa án quốc tế."],"B"],["1-49",1,49,"H","Hình thức tiệc ngồi cao cấp và trang trọng nhất trong ngoại giao do Nguyên thủ quốc gia chủ trì đón Nguyên thủ nước ngoài là:",["Quốc yến / Quốc tiệc (State Banquet).","Tiệc chiêu đãi cơm trưa chính thức (Official Lunch).","Tiệc trà xã giao (Tea Party).","Tiệc buffet đứng tự chọn."],"A"],["1-50",1,50,"H","Thời gian và thời lượng chuẩn mực của một buổi Quốc yến ngoại giao thường là:",["Buổi sáng, kéo dài 60 phút.","Buổi tối (hoặc buổi trưa), thời lượng từ 120 đến 150 phút.","Buổi chiều từ 16h00 đến 17h00.","Kéo dài thâu đêm từ 21h00 đến 4h00 sáng."],"B"],["1-51",1,51,"H","Tiệc Trà (Tea Party) trong ngoại giao thường do ai chủ trì và đối tượng tham dự chủ yếu là ai?",["Do Bộ trưởng Quốc phòng chủ trì mời các tướng lĩnh quân sự.","Do Nữ chủ tiệc (Phu nhân Lãnh đạo / Đại sứ) chủ trì mời các vị phu nhân.","Do Trưởng đoàn Ngoại giao chủ trì mời các phóng viên quốc tế.","Do Giám đốc khách sạn chủ trì phục vụ đoàn tháp tùng."],"B"],["1-52",1,52,"P","Quy tắc \"Bên phải trước, bên trái sau\" (Right-hand Rule) trong xếp chỗ bàn tiệc quy định:",["Khách chính luôn ngồi bên tay trái của Chủ tiệc.","Vị trí bên tay phải luôn được ưu tiên hơn bên trái, Khách chính ngồi ngay bên tay phải Chủ tiệc.","Phụ nữ luôn ngồi bên tay trái nam giới.","Phiên dịch viên ngồi bên tay phải của Khách chính."],"B"],["1-53",1,53,"S","Bàn tiệc dài kiểu Pháp (French Arrangement) có đặc điểm bố trí vị trí chủ tọa như thế nào?",["Chủ tiệc và Phu nhân ngồi ở hai đầu bàn tiệc.","Chủ tiệc và Phu nhân ngồi đối diện nhau ở ngay trung tâm hai cạnh bàn dài.","Cả hai cùng ngồi ở một đầu bàn quay mặt ra sân khấu.","Chủ tiệc ngồi ở giữa, Phu nhân ngồi ở bàn vệ tinh."],"B"],["1-54",1,54,"S","Bàn tiệc dài kiểu Anh (English Arrangement) có đặc điểm bố trí nào sau đây?",["Chủ tiệc và Phu nhân ngồi ở hai đầu bàn tiệc (đầu bàn và cuối bàn).","Chủ tiệc và Phu nhân ngồi đối diện nhau ở chính giữa bàn dài.","Khách chính ngồi ở đầu bàn đối diện với người lái xe.","Toàn bộ phái đoàn khách ngồi ở một đầu bàn riêng."],"A"],["1-55",1,55,"S","Nhược điểm lớn nhất của việc sắp xếp bàn tiệc dài theo kiểu Anh khi số lượng khách mời quá đông là gì?",["Gây ồn ào ở khu vực trung tâm phòng tiệc.","Khoảng cách bàn quá dài khiến hai chủ nhà bị tách rời hoàn toàn và khó trao đổi, giao tiếp với nhau.","Không thể xếp khách danh dự ngồi bên phải chủ nhà.","Bắt buộc phải phục vụ thực đơn 7 món tang lễ."],"B"],["1-56",1,56,"P","Bố trí bàn tiệc tròn 10 người kiểu Á Đông có mâm xoay, vị trí ngồi của Khách chính (VT6) được xác định như thế nào?",["Ngồi ngay bên cạnh tay trái Chủ tiệc.","Ngồi quay lưng hoàn toàn ra cửa chính.","Ngồi ở vị trí đối diện trực tiếp với Chủ tiệc.","Ngồi xen kẽ giữa hai phiên dịch viên."],"C"],["1-57",1,57,"V","Tại bàn tiệc ngoại giao, vị trí ngồi danh dự nhất của Phu nhân Khách chính là:",["Bên tay trái của Phu nhân Chủ tiệc.","Bên tay phải của Chủ tiệc (Host).","Ngồi đối diện với chồng mình ở cuối bàn.","Ngồi cạnh cửa ra vào phòng tiệc."],"B"],["1-58",1,58,"P","Bàn làm việc đối ngoại (hội đàm song phương) giữa hai đoàn đại biểu xếp thứ tự các thành viên theo nguyên tắc nào?",["Trưởng đoàn ngồi đầu bàn, các thành viên xếp ngẫu nhiên.","Trưởng đoàn ngồi ở giữa; các thành viên tiếp theo xếp theo nguyên tắc lần lượt bên phải rồi đến bên trái Trưởng đoàn.","Xếp toàn bộ nhân viên nam bên phải, nhân viên nữ bên trái.","Phía khách ngồi toàn bộ bên phải phòng, phía chủ ngồi bên trái."],"B"],["1-59",1,59,"P","Trong buổi hội đàm đối ngoại có sử dụng phiên dịch viên, vị trí của phiên dịch viên được xếp ở đâu?",["Ngồi đối diện với Trưởng đoàn bạn.","Ngồi ngay bên trái (hoặc bên cạnh/lùi sau) Trưởng đoàn, vị trí này không tính vào thứ tự danh dự của các đại biểu.","Ngồi ở vị trí số 2 bên phải Trưởng đoàn.","Ngồi ở bàn riêng cách xa phòng hội đàm 5 mét."],"B"],["1-60",1,60,"Đ","Quy chuẩn ẩm thực quốc tế dành cho khách ngoại giao theo đạo Hồi (Islam) bắt buộc phải tuân thủ điều kiện nào?",["Thực đơn Kosher không trộn thịt và sữa.","Thực phẩm đạt chuẩn Halal, tuyệt đối cấm thịt heo, kiêng lươn, ếch, ba ba và không dùng rượu cồn.","Bắt buộc ăn chay trường có gia vị hành tỏi nồng.","Thịt bò phải mổ chín tái và ăn kèm sốt vang đỏ."],"B"],["1-61",1,61,"Đ","Khi phục vụ tiệc chiêu đãi đối tác ngoại giao theo Ấn Độ giáo (Hinduism), món ăn nào tuyệt đối KHÔNG được xuất hiện?",["Món thịt gia cầm (gà, vịt).","Món cá hồi sốt kem bơ.","Thịt bò (do bò được tôn kính là linh vật Gomata).","Bánh ngọt và trái cây tươi."],"C"],["1-62",1,62,"Đ","Quy tắc Kosher trong ẩm thực của khách Do Thái giáo (Jewish) nghiêm cấm điều gì?",["Không trộn chung thịt và sữa trong cùng món ăn, kiêng thịt heo và hải sản có vỏ cứng.","Cấm ăn thịt gà và trứng gia cầm.","Chỉ được uống rượu mạnh trên 40 độ.","Bắt buộc ăn bốc bằng tay trái."],"A"],["1-63",1,63,"Đ","Điều đại kỵ nào trên bàn ăn trong văn hóa Á Đông (Việt Nam, Trung Quốc, Nhật Bản) bị xem là xúc phạm vì gợi liên tưởng đến việc cúng cơm người chết?",["Dùng thìa để húp nước súp.","Cắm đũa thẳng đứng vào bát cơm.","Đặt nĩa chéo nhau trên đĩa ăn.","Xoay mâm tròn theo chiều kim đồng hồ."],"B"],["1-64",1,64,"V","Nhiệt độ phục vụ chuẩn mực của rượu vang đỏ (Red Wine) trong tiệc chiêu đãi ngoại giao là:",["6°C đến 8°C.","8°C đến 12°C.","16°C đến 18°C.","Phục vụ nóng trên 30°C."],"C"],["1-65",1,65,"V","Nhiệt độ phục vụ chuẩn mực của rượu vang trắng (White Wine) là:",["2°C đến 4°C.","8°C đến 12°C.","18°C đến 22°C.","Nhiệt độ phòng tự nhiên."],"B"],["1-66",1,66,"V","Quy chuẩn rót rượu của nhân viên lễ tân phục vụ tiệc ngoại giao quy định:",["Đứng bên trái khách, rót đầy tràn ly.","Đứng bên phải khách, bọc chai bằng khăn trắng, rót tối đa 1/3 ly vang (hoặc 1/2 ly Champagne), không để rượu nhỏ giọt.","Chạm mạnh miệng chai vào vành ly để tạo âm thanh.","Rót đồng loạt từ phía sau lưng khách."],"B"],["1-67",1,67,"Đ","Hành vi nào sau đây được coi là điều \"Đại kỵ\" tuyệt đối tránh khi chúc rượu trong văn hóa ngoại giao phương Tây?",["Nhìn thẳng vào mắt đối phương khi chạm ly.","Chạm nhẹ vào phần bầu ly của đối tác.","Cụng ly bằng nước lọc (mang điềm xui xẻo hoặc ý nghĩa thủy táng) hoặc nâng ly rỗng.","Người ít tuổi hạ thấp ly hơn người lớn tuổi."],"C"],["1-68",1,68,"P","Dấu hiệu tay \"O.K.\" (ngón cái và ngón trỏ tạo thành vòng tròn) mang ý nghĩa tích cực ở Mỹ nhưng lại bị coi là cử chỉ lăng mạ, xúc phạm nghiêm trọng tại quốc gia nào?",["Anh và Canada.","Hy Lạp, Brazil, Nga và Thổ Nhĩ Kỳ.","Nhật Bản (biểu thị tiền xu).","Pháp và Bỉ (biểu thị số 0)."],"B"],["1-69",1,69,"Đ","Cơ quan chấp hành có thực quyền nhất của Liên Hợp Quốc giữ trách nhiệm chính trong việc duy trì hòa bình và an ninh quốc tế là:",["Đại hội đồng.","Hội đồng Bảo an (gồm 5 ủy viên thường trực P5 và 10 ủy viên không thường trực).","Tòa án Quốc tế.","Ban Thư ký."],"B"],["1-70",1,70,"S","Nền ngoại giao toàn diện, hiện đại của Việt Nam được cấu thành bởi 3 trụ cột chiến lược nào?",["Ngoại giao Quốc phòng, Ngoại giao An ninh và Ngoại giao Nhân dân.","Ngoại giao Chính trị, Ngoại giao Kinh tế và Ngoại giao Văn hóa.","Ngoại giao Song phương, Ngoại giao Đa phương và Ngoại giao Số.","Ngoại giao Nhà nước, Đối ngoại Đảng và Đối ngoại Quốc hội."],"B"],["2-1",2,1,"","Theo nguồn gốc từ nguyên Hán – Việt, thành tố \"Lễ\" (禮) trong thuật ngữ \"Lễ tân\" phản ánh nội hàm nào sau đây?",["Đối tượng tham gia tiếp xúc hoặc người được đón tiếp.","Chuẩn mực xã hội, phép tắc ứng xử, trật tự tôn ti và nghi thức khuôn mẫu.","Tờ giấy đầu tiên đính kèm văn kiện để chứng thực pháp lý.","Tấm thẻ kim loại chứng nhận đặc quyền đi lại qua các biên giới."],"B"],["2-2",2,2,"","Trong phân loại lễ tân, hình thức Lễ tân Dịch vụ - Lưu trú (Front Office & Reception) có nhiệm vụ trọng tâm là gì?",["Duy trì quan hệ chính thức giữa các nguyên thủ quốc gia và đại sứ.","Ký kết thỏa thuận hợp tác thương mại và đại hội đồng cổ đông.","Tiếp nhận, hướng dẫn, xử lý thủ tục check-in, check-out và nhu cầu lưu trú của khách.","Soạn thảo công hàm ngoại giao và tổ chức các chuyến thăm cấp nhà nước."],"C"],["2-3",2,3,"","Tính chất nào của Lễ tân định hình các quy tắc bắt buộc về trang phục, xưng hô, chào hỏi và thủ tục tiếp xúc nhằm hạn chế tối đa sai sót?",["Tính quy phạm (Normative character).","Trật tự ngôi thứ (Precedence).","Tính biểu trưng (Symbolism).","Tính công cụ (Instrumentality)."],"A"],["2-4",2,4,"","Thuật ngữ ngoại giao (Diplomacy) có nguồn gốc từ từ \"Diploma\" trong tiếng Hy Lạp cổ, mang nghĩa gốc là gì?",["Keo dán tờ giấy đầu tiên vào văn bản lưu trữ.","Văn kiện được gấp làm đôi hoặc tấm thẻ kim loại chứng nhận tư cách, đặc quyền khi đi lại.","Nghi thức tiếp đãi sứ thần giữa các thành bang.","Bài phát biểu chính thức của nguyên thủ quốc gia."],"B"],["2-5",2,5,"","Mối quan hệ biện chứng giữa Chính sách đối ngoại và Ngoại giao được xác định như thế nào?",["Ngoại giao quyết định mục tiêu chiến lược, chính sách đối ngoại là phương thức thực thi.","Chính sách đối ngoại xác định mục tiêu chiến lược, còn ngoại giao là phương thức, công cụ hòa bình để hiện thực hóa các mục tiêu đó.","Hai khái niệm này hoàn toàn đồng nhất về nội hàm và đối tượng thụ hưởng.","Chính sách đối ngoại chỉ áp dụng trong thời chiến, ngoại giao áp dụng trong thời bình."],"B"],["2-6",2,6,"","Hình thái ngoại giao nào chủ yếu tác động trực tiếp đến công chúng, học giả và truyền thông nước ngoài nhằm gia tăng sức mạnh mềm của quốc gia?",["Ngoại giao song phương (Bilateral Diplomacy).","Ngoại giao kinh tế (Economic Diplomacy).","Ngoại giao công chúng (Public Diplomacy).","Ngoại giao số (Digital Diplomacy)."],"C"],["2-7",2,7,"","Ba cường quốc trụ cột nào của phe Đồng minh đã tiến hành đàm phán tại các hội nghị Tê-hê-ran (1943) và I-an-ta (1945) đặt nền móng thành lập Liên Hợp Quốc?",["Mỹ, Liên Xô và Pháp.","Anh, Mỹ và Liên Xô.","Anh, Pháp và Trung Quốc.","Mỹ, Liên Xô và Đức."],"B"],["2-8",2,8,"","Nguyên tắc \"Bình đẳng chủ quyền giữa các quốc gia\" (Sovereign Equality) được thể hiện trực quan nhất trong tác nghiệp lễ tân qua hành động nào?",["Quốc kỳ các nước tham dự được treo ngang hàng, luân phiên ký kết điều ước và phát biểu theo thứ tự chữ cái.","Nước có tiềm lực kinh tế lớn hơn được bố trí chỗ ngồi ở vị trí trung tâm bàn tiệc.","Quốc ca nước chủ nhà luôn được cử với thời lượng dài gấp đôi quốc ca nước khách.","Nguyên thủ nước lớn luôn được ưu tiên đi trước trong mọi nghi lễ di chuyển."],"A"],["2-9",2,9,"","Biểu hiện của \"Nguyên tắc có đi có lại\" (Reciprocity) theo chiều hướng tiêu cực trong quan hệ ngoại giao là gì?",["Tăng cường viện trợ không hoàn lại khi đối tác gặp thiên tai dịch bệnh.","Áp dụng biện pháp cắt giảm quy mô nghi thức đón tiếp tương ứng nếu phía đối tác đã từng hạn chế đối với đoàn của ta.","Đón tiếp trọng thị tối đa với kỳ vọng đối tác sẽ biệt đãi tương đương.","Tuyên bố trục xuất toàn bộ công dân của đối tác ra khỏi lãnh thổ."],"B"],["2-10",2,10,"","Sự kiện Tổng thống Hợp chúng quốc Hoa Kỳ Barack Obama thăm chính thức Việt Nam vào tháng 5/2016 thuộc phạm vi điều chỉnh của loại hình lễ tân nào?",["Lễ tân Ngoại giao.","Lễ tân Đối ngoại doanh nghiệp.","Lễ tân Dịch vụ - Lưu trú.","Lễ tân Lãnh sự phi chính phủ."],"A"],["2-11",2,11,"","Sự kiện Tổng giám đốc Tập đoàn Coca-Cola toàn cầu sang thăm và làm việc với chi nhánh Coca-Cola Việt Nam năm 2008 thuộc phạm vi của loại hình nào?",["Lễ tân Ngoại giao Nhà nước.","Lễ tân Đối ngoại.","Lễ tân Quân sự.","Lễ tân Đa phương của Liên Hợp Quốc."],"B"],["2-12",2,12,"","Chức năng \"Bảo hộ\" (Protection) của cơ quan đại diện ngoại giao theo Điều 3 Công ước Viên 1961 được hiểu là:",["Thay mặt Nhà nước cử đi đàm phán các thỏa thuận hiệp ước song phương.","Bảo vệ các quyền và lợi ích hợp pháp của Nước cử đi cũng như công dân và pháp nhân của mình trong phạm vi luật pháp quốc tế.","Báo cáo tình hình an ninh trật tự của nước tiếp nhận bằng các biện pháp tình báo.","Hỗ trợ doanh nghiệp nước tiếp nhận quảng bá thương hiệu tại nước mình."],"B"],["2-13",2,13,"","Công ước Viên 1961 cho phép cơ quan đại diện ngoại giao thực hiện chức năng \"Điều tra và báo cáo\" với điều kiện tiên quyết nào?",["Phải công khai các nguồn tin mật trên các phương tiện truyền thông đại chúng.","Được phép cài cắm thiết bị nghe lén tại các cơ quan nhà nước sở tại.","Phải tìm hiểu bằng mọi phương tiện hợp pháp về tình hình chính trị, kinh tế, xã hội nước sở tại.","Chỉ được báo cáo khi có sự phê duyệt trước của Bộ Ngoại giao nước tiếp nhận."],"C"],["2-14",2,14,"","Trong lịch sử ngoại giao phong kiến Việt Nam, triết lý ứng xử nào thể hiện sự hòa hiếu với láng giềng phương Bắc nhưng vẫn kiên quyết giữ vững độc lập chủ quyền bên trong?",["\"Chiếu dời đô\" kết hợp \"Bình Ngô đại cáo\".","\"Nhu viễn\" (hòa hiếu) song hành với \"ngoại vương, nội đế\".","\"Bế quan tỏa cảng\" và tuyệt giao thương mại.","\"Tâm công\" thuần túy không duy trì quân đội thường trực."],"B"],["2-15",2,15,"","Cơ quan đại diện ngoại giao đầu tiên của nước Việt Nam Dân chủ Cộng hòa phụ trách lễ tân chuyên trách (thành lập năm 1954) có tên gọi ban đầu là gì?",["Cục Lễ tân Nhà nước.","Vụ Lễ tân thuộc Bộ Ngoại giao.","Ban Đối ngoại Trung ương.","Ty Dịch sứ."],"B"],["2-16",2,16,"","Căn cứ Hiến pháp nước Cộng hòa Xã hội Chủ nghĩa Việt Nam, thẩm quyền cử, triệu hồi Đại sứ đặc mệnh toàn quyền thuộc về cơ quan hoặc chức danh nào?",["Quốc hội.","Thủ tướng Chính phủ.","Chủ tịch nước.","Bộ trưởng Bộ Ngoại giao."],"C"],["2-17",2,17,"","Trong hệ thống cơ quan đối ngoại ở trong nước, cơ quan nào sau đây thuộc nhóm \"Cơ quan đại diện chuyên ngành\"?",["Nguyên thủ quốc gia.","Chính phủ.","Các Bộ, cơ quan ngang Bộ và Ủy ban Nhà nước.","Quốc hội (Nghị viện)."],"C"],["2-18",2,18,"","Hệ thống cơ quan đối ngoại thường trực của một quốc gia ở nước ngoài KHÔNG bao gồm cơ quan nào sau đây?",["Cơ quan đại diện ngoại giao (Đại sứ quán).","Cơ quan lãnh sự (Tổng Lãnh sự quán, Lãnh sự quán).","Phái đoàn đại diện thường trực tại các tổ chức quốc tế.","Văn phòng đại diện thương mại của các công ty tư nhân đa quốc gia."],"D"],["2-19",2,19,"","Điều 8 Công ước Viên 1961 quy định điều kiện gì về mặt quốc tịch để một cá nhân được bổ nhiệm làm viên chức ngoại giao của nước cử đi?",["Về nguyên tắc, phải mang quốc tịch của Nước cử đi và không có quốc tịch của Nước tiếp nhận.","Bắt buộc phải có song tịch của cả hai quốc gia hữu quan.","Mang quốc tịch của một quốc gia trung lập không tham gia khối quân sự.","Bắt buộc phải thường trú tại nước tiếp nhận tối thiểu 5 năm."],"A"],["2-20",2,20,"","Căn cứ Điều 38 Công ước Viên 1961, điều kiện nơi thường trú để được hưởng đầy đủ quyền ưu đãi và miễn trừ ngoại giao là gì?",["Phải có nhà ở thường trú thuộc quyền sở hữu cá nhân tại nước sở tại.","Người được hưởng không có nơi thường trú tại nước nhận đại diện.","Đăng ký hộ khẩu thường trú vĩnh viễn tại thủ đô nước tiếp nhận.","Không bắt buộc quy định về nơi cư trú nếu có chứng minh thư ngoại giao."],"B"],["2-21",2,21,"","Theo Điều 37 Công ước Viên 1961, nhân viên hành chính và kỹ thuật của cơ quan đại diện ngoại giao cùng thành viên gia đình họ được hưởng quyền miễn trừ xét xử như thế nào?",["Được miễn trừ tuyệt đối khỏi mọi quyền tài phán hình sự, dân sự và hành chính mà không có bất kỳ ngoại lệ nào.","Được miễn trừ tài phán hình sự, nhưng quyền miễn trừ tài phán dân sự và hành chính chỉ giới hạn trong các hành vi thực hiện khi thi hành công vụ.","Hoàn toàn không được hưởng bất kỳ quyền miễn trừ tài phán nào.","Chỉ được miễn trừ nếu đi cùng xe ô tô với Đại sứ."],"B"],["2-22",2,22,"","Quyền bất khả xâm phạm về thân thể (Personal Inviolability) quy định tại Điều 29 Công ước Viên 1961 khẳng định viên chức ngoại giao:",["Chỉ được miễn bắt giữ vào ban ngày, ban đêm có thể tạm giữ hành chính.","Không thể bị bắt giữ, tạm giữ hoặc giam cầm dưới bất kỳ hình thức nào.","Bị xét xử lưu động nếu vi phạm luật giao thông đường bộ.","Phải chịu sự khám xét thân thể ngẫu nhiên tại cửa khẩu an ninh."],"B"],["2-23",2,23,"","Theo Điều 35 Công ước Viên 1961, viên chức ngoại giao được nước sở tại miễn trừ những nghĩa vụ nào?",["Miễn mọi tạp dịch cá nhân, nghĩa vụ công ích và nghĩa vụ quân sự.","Miễn thanh toán tiền điện, nước và cước viễn thông cá nhân.","Miễn tuân thủ các biển báo và tín hiệu đèn giao thông trên đường.","Miễn trách nhiệm hoàn trả nợ vay ngân hàng thương mại sở tại."],"A"],["2-24",2,24,"","Điều 41 Công ước Viên 1961 quy định mọi công việc giao thiệp chính thức của cơ quan đại diện ngoại giao với nước tiếp nhận phải được tiến hành qua đâu?",["Trực tiếp qua Văn phòng Tổng thống hoặc Phủ Thủ tướng.","Thông qua Bộ Ngoại giao của nước sở tại (hoặc bộ ngành khác nếu có thỏa thuận).","Kênh truyền thông báo chí quốc tế.","Trực tiếp qua Tòa án nhân dân tối cao nước sở tại."],"B"],["2-25",2,25,"","Khoản 3 Điều 41 Công ước Viên 1961 nghiêm cấm trụ sở cơ quan đại diện ngoại giao được sử dụng vào mục đích nào?",["Tổ chức các buổi chiêu đãi quốc khánh và lễ tân ngoại giao.","Họp giao ban nội bộ giữa các cán bộ ngoại giao.","Vào bất kỳ mục đích nào không phù hợp với các chức năng của cơ quan đại diện theo quy định của luật quốc tế.","Treo quốc kỳ và quốc huy của nước cử đi."],"C"],["2-26",2,26,"","Viên chức ngoại giao mở một nhà hàng ăn uống tư nhân tại thủ đô nước sở tại để kinh doanh sinh lời. Khi nhà hàng này bị đối tác kiện vì quỵt tiền cung cấp thực phẩm, viên chức đó có thể nại quyền miễn trừ xét xử dân sự để bác bỏ đơn kiện không?",["Có, vì nhà ngoại giao được miễn trừ mọi vụ kiện dân sự vô điều kiện.","Không, vì đây là hoạt động thương mại ngoài phạm vi chức năng chính thức (thuộc điểm c, khoản 1 Điều 31 VCDR 1961).","Có, nếu viên chức đó trích nộp 10% doanh thu cho ngân sách đại sứ quán.","Tùy thuộc vào sự can thiệp của Trưởng đoàn Ngoại giao."],"B"],["2-27",2,27,"","Văn bản trang trọng do Nguyên thủ quốc gia cử đi ký và đóng quốc ấn nhằm thông báo chính thức cho nước tiếp nhận về việc kết thúc nhiệm kỳ của Đại sứ được gọi là:",["Công hàm ngoại giao (Note Verbale).","Thư ủy nhiệm (Letters of Credence).","Thư triệu hồi (Letters of Recall).","Giác thư trao tay (Aide-Mémoire)."],"C"],["2-28",2,28,"","Điểm khác biệt căn bản về thể thức giữa Công hàm ngoại giao (Note Verbale) và Công hàm cá nhân (Personal Note) là:",["Công hàm ngoại giao viết ở ngôi thứ nhất và có chữ ký đầy đủ; công hàm cá nhân viết ở ngôi thứ ba.","Công hàm ngoại giao viết ở ngôi thứ ba, không ký tên cá nhân (chỉ ký nháy) nhưng bắt buộc đóng dấu; công hàm cá nhân viết ở ngôi thứ nhất, do người đứng đầu đích danh ký tên.","Công hàm cá nhân không có giá trị pháp lý bằng giác thư.","Cả hai loại văn bản đều không được phép đóng dấu của cơ quan đại diện."],"B"],["2-29",2,29,"","Hiến chương Liên Hợp Quốc chính thức có hiệu lực vào ngày tháng năm nào, đánh dấu ngày thành lập Liên Hợp Quốc?",["Ngày 01/01/1942.","Ngày 18/04/1945.","Ngày 24/10/1945.","Ngày 15/12/1948."],"C"],["2-30",2,30,"","Khóa họp thường kỳ hằng năm của Đại hội đồng Liên Hợp Quốc theo Nghị quyết 57/301 bắt đầu vào thời điểm nào?",["Ngày thứ Ba của tuần thứ ba trong tháng 9 (tính từ tuần đầu có ít nhất 1 ngày làm việc).","Ngày đầu tiên của tháng 10 hằng năm.","Ngày thứ Hai đầu tiên của tháng 9.","Ngày kỷ niệm thành lập Liên Hợp Quốc (24/10)."],"A"],["2-31",2,31,"","Đại hội đồng Liên Hợp Quốc có bao nhiêu Ủy ban chính để giải quyết các mảng chuyên môn?",["3 Ủy ban.","5 Ủy ban.","6 Ủy ban chính.","15 Ủy ban thường trực."],"C"],["2-32",2,32,"","Ủy ban 2 của Đại hội đồng Liên Hợp Quốc chịu trách nhiệm chuyên trách mảng công việc nào?",["Giải trừ quân bị và An ninh quốc tế.","Kinh tế - Tài chính.","Văn hóa - Xã hội - Nhân đạo.","Pháp lý và Luật quốc tế."],"B"],["2-33",2,33,"","Ủy ban 6 của Đại hội đồng Liên Hợp Quốc phụ trách lĩnh vực nào?",["Chính trị đặc biệt và Phi thực dân hóa.","Hành chính - Ngân sách Liên Hợp Quốc.","Luật pháp quốc tế.","Kiểm tra tư cách đại biểu các quốc gia."],"C"],["2-34",2,34,"","Cơ chế bỏ phiếu đối với các vấn đề thực chất (phi thủ tục) tại Hội đồng Bảo an Liên Hợp Quốc đòi hỏi điều kiện nào để được thông qua?",["Chỉ cần quá bán (8/15) phiếu thuận của các nước thành viên bất kỳ.","Cần sự đồng thuận tuyệt đối của tất cả 15 quốc gia thành viên.","Ít nhất 9/15 phiếu thuận, trong đó phải bao gồm phiếu tán thành của toàn bộ 5 nước ủy viên thường trực (P5).","Đạt 2/3 tổng số phiếu của các nước đang phát triển."],"C"],["2-35",2,35,"","Trong thực tiễn hoạt động của Hội đồng Bảo an Liên Hợp Quốc, việc một nước ủy viên thường trực (P5) bỏ phiếu trắng hoặc không tham gia bỏ phiếu được tính như thế nào?",["Mặc nhiên coi là sử dụng quyền phủ quyết (Veto).","Không bị coi là phủ quyết; nghị quyết vẫn được thông qua nếu đạt đủ tối thiểu 9 phiếu thuận.","Làm phiên họp bị hoãn vô thời hạn cho đến khi bỏ phiếu lại.","Làm mất hiệu lực thi hành của nghị quyết theo Chương VII."],"B"],["2-36",2,36,"","Vị Tổng Thư ký Liên Hợp Quốc thứ 9 đảm nhiệm chức vụ từ năm 2017 đến nay là ai?",["Ban Ki-moon (Hàn Quốc).","Kofi Annan (Ghana).","António Guterres (Bồ Đào Nha).","Boutros Boutros-Ghali (Ai Cập)."],"C"],["2-37",2,37,"","Hiệp hội các quốc gia Đông Nam Á (ASEAN) được thành lập vào ngày tháng năm nào và tại đâu?",["28/7/1995 tại Bandar Seri Begawan (Brunei).","08/8/1967 tại Bangkok (Thái Lan).","15/12/2008 tại Jakarta (Indonesia).","12/12/1998 tại Hà Nội (Việt Nam)."],"B"],["2-38",2,38,"","Cơ quan hoạch định chính sách tối cao của ASEAN theo quy định của Hiến chương ASEAN là:",["Hội đồng Điều phối ASEAN (ACC).","Ủy ban các Đại diện thường trực (CPR).","Hội nghị Cấp cao ASEAN.","Ban Thư ký ASEAN Quốc gia."],"C"],["2-39",2,39,"","Công thức \"ASEAN-X\" quy định trong Hiến chương ASEAN cho phép điều gì?",["Khai trừ một quốc gia thành viên nếu vi phạm các tiêu chuẩn nhân quyền.","Cho phép các nước thành viên có điều kiện được thực hiện mở cửa kinh tế trước trên cơ sở có sự đồng thuận.","Cho phép can thiệp quân sự vào các cuộc xung đột biên giới song phương.","Miễn trừ đóng góp niên liễm tài chính cho các nước mới gia nhập."],"B"],["2-40",2,40,"","Sự kiện ngoại giao đa phương lịch sử đánh dấu dấu ấn nổi bật của Việt Nam sau khi gia nhập ASEAN, được tổ chức vào tháng 12/1998 là:",["Hội nghị Cấp cao ASEAN lần thứ 16.","Hội nghị Cấp cao ASEAN lần thứ 6 tại Hà Nội (thông qua Chương trình Hành động Hà Nội - HPA).","Diễn đàn Khu vực ASEAN lần thứ 8 (ARF-8).","Hội nghị Bộ trưởng Ngoại giao ASEAN lần thứ 34 (AMM-34)."],"B"],["2-41",2,41,"","Trong sơ đồ bố trí chỗ ngồi phòng salon tiếp khách đối ngoại (nhìn từ ngoài cửa vào bên trong), phía chủ nhà được sắp xếp ngồi ở đâu?",["Ngồi ở dãy ghế bên tay trái.","Ngồi ở dãy ghế bên tay phải.","Ngồi đối diện ngay giữa cửa ra vào.","Ngồi xen kẽ cùng một hàng ghế với khách."],"B"],["2-42",2,42,"","Tại buổi đàm phán song phương ở bàn dài chữ nhật, đại biểu xếp thứ tự số 3 của đoàn khách ngồi ở vị trí nào so với Trưởng đoàn khách?",["Ngồi bên tay phải của Trưởng đoàn khách.","Ngồi bên tay trái của Trưởng đoàn khách.","Ngồi đối diện với Trưởng đoàn chủ nhà.","Ngồi ở đầu bàn góc 45 độ."],"B"],["2-43",2,43,"","Bố trí chỗ ngồi bàn tròn chiêu đãi theo Cách 2 (Chủ chính và Khách chính ngồi cạnh nhau) nhằm phục vụ mục đích thực tiễn nào?",["Tạo điều kiện cho hai bên tranh luận thẳng thắn và gay gắt.","Phù hợp khi phía dưới phòng tiệc còn có nhiều bàn khác hoặc tạo điều kiện cho cả hai vị trí cùng quan sát quang cảnh đẹp.","Tiết kiệm tối đa diện tích bày biện dụng cụ dao nĩa.","Cách xếp duy nhất được Công ước Viên 1961 bắt buộc áp dụng."],"B"],["2-44",2,44,"","Bố trí bàn tiệc tròn chiêu đãi theo Cách 3 (Ông chủ và Bà chủ ngồi đối diện nhau) áp dụng cho đối tượng tham gia là các cặp vợ chồng theo quy tắc nào?",["Xếp các cặp vợ chồng ngồi cạnh nhau thành từng cụm.","Xếp toàn bộ nam giới ngồi một bên, nữ giới ngồi một bên bàn tròn.","Từng cặp vợ chồng được sắp xếp chéo hình chữ X (ví dụ K1 chéo K2, K3 chéo K4, C1 chéo C2).","Vợ chồng khách ngồi hai đầu bàn, vợ chồng chủ ngồi giữa."],"C"],["2-45",2,45,"","Trong đoàn đại biểu có cả vợ lẫn chồng tháp tùng, quy tắc bố trí xe ô tô tiêu chuẩn quy định như thế nào?",["Bắt buộc vợ chồng phải ngồi chung cùng xe với lái xe và cận vệ.","Chủ và khách chính lên xe trước; phu nhân (hoặc phu quân) đi ở xe tiếp theo (trừ trường hợp khách có yêu cầu đi chung thì ngồi ở hàng ghế sau).","Phu nhân ngồi ghế phụ phía trước bên cạnh lái xe.","Khách chính ngồi sau lái xe, phu nhân ngồi sau ghế phụ."],"B"],["2-46",2,46,"","Trách nhiệm nghiệp vụ của cán bộ tháp tùng hoặc sĩ quan bảo vệ ngồi ở ghế phụ phía trước khi xe ô tô dừng bánh là gì?",["Ngồi yên trên xe chờ khách chính bước xuống trước.","Nhanh chóng xuống xe trước để hỗ trợ mở cửa xe cho Khách chính bước xuống.","Xuống xe để bắt tay chào chủ nhà thay cho Trưởng đoàn.","Bấm còi xe báo hiệu cho ban lễ tân."],"B"],["2-47",2,47,"","Khi hai Nguyên thủ quốc gia cùng đi chung trên một chiếc xe ô tô đối ngoại, quy tắc cắm cờ được quy định như thế nào (nhìn theo hướng di chuyển từ trong xe ra)?",["Cờ nước khách cắm bên phải xe, cờ nước chủ nhà cắm bên trái xe.","Cờ nước chủ nhà cắm bên phải xe, cờ nước khách cắm bên trái xe.","Cả hai bên đầu xe đều cắm cờ của Liên Hợp Quốc.","Không cắm cờ để bảo đảm tính bí mật an ninh."],"B"],["2-48",2,48,"","Khi bố trí Quốc kỳ trên bục diễn đàn của diễn giả trong phòng hội nghị, vị trí cờ được đặt như thế nào?",["Bên trái của diễn giả (tức bên phải của khán giả).","Bên phải của diễn giả (tức là bên trái theo hướng nhìn của khán giả từ dưới lên).","Đặt chính giữa che khuất người diễn giả.","Treo rủ từ trên trần nhà xuống bục phát biểu."],"B"],["2-49",2,49,"","Khi có hai lá cờ bắt chéo cán cờ trên phông khánh tiết, quy tắc xếp đặt chuẩn mực là:",["Cờ danh dự ở bên trái (theo góc nhìn khán giả), cán cờ danh dự đặt chồng lên trên cán cờ thứ hai.","Cờ danh dự ở bên phải, cán cờ danh dự luồn dưới cán cờ thứ hai.","Cán hai lá cờ đan lồng vào nhau không phân biệt trên dưới.","Cán cờ nước khách bắt buộc phải nằm đè lên cờ nước chủ nhà."],"A"],["2-50",2,50,"","Treo từ 4 lá Quốc kỳ trở lên theo quy tắc đối xứng gối nhau với tổng số cờ là số CHẴN (ví dụ 6 cờ), thứ tự sắp xếp từ trái qua phải là:",["1 - 2 - 3 - 4 - 5 - 6.","6 - 4 - 2 - 1 - 3 - 5.","5 - 3 - 1 - 2 - 4 - 6.","4 - 2 - 1 - 3 - 5 - 6."],"C"],["2-51",2,51,"","Bộ trang phục \"Black Lounge\" (Áo vest đen ngắn kèm quần âu kẻ sọc) thường được sử dụng trong dịp lễ tiết nào?",["Tiệc khiêu vũ dạ hội buổi tối.","Các nghi lễ trang nghiêm như lễ tưởng niệm liệt sĩ, lễ viếng cấp quốc gia.","Lễ đón tiếp nguyên thủ tại sân bay mùa hè.","Tiệc cocktail đứng sau hội nghị."],"B"],["2-52",2,52,"","Thao tác chuẩn lịch thiệp của nam giới khi hỗ trợ phụ nữ mặc áo khoác ngoài trong sự kiện đối ngoại là gì?",["Đứng phía trước người phụ nữ và kéo mạnh hai tay áo.","Nam nâng hai đầu cầu vai áo ngang tầm cao của nữ; người nữ đưa hai tay vào tay áo, xốc nhẹ lên vai.","Ném áo khoác lên lưng người phụ nữ từ phía sau.","Để người phụ nữ tự xoay sở mặc áo khoác."],"B"],["2-53",2,53,"","Tiệc chiêu đãi cơm trưa chính thức (Official Lunch) có đặc điểm thời gian và thực đơn điển hình nào sau đây?",["Bắt đầu từ 10h00, tiệc buffet tự do không có rượu vang.","Bắt đầu từ 11h30, kéo dài khoảng 90 phút; món cá/hải sản dùng vang trắng, món thịt dùng vang đỏ.","Kéo dài từ 12h00 đến 16h00 gồm 10 món ăn đặc sản.","Bắt đầu lúc 13h00, chỉ phục vụ bia hơi và món ăn nhanh."],"B"],["2-54",2,54,"","Loại hình tiệc nào không xếp chỗ ngồi quanh bàn ăn (trừ bàn VIP), không in thực đơn riêng và không phục vụ rượu khai vị?",["Quốc yến cấp Nhà nước (State Banquet).","Tiệc chiêu đãi tối chính thức (Official Dinner).","Tiệc đứng Buffet (Buffet Reception).","Tiệc làm việc (Working Lunch)."],"C"],["2-55",2,55,"","Tiệc Rượu (Cocktail Party) thường bắt đầu vào các khung giờ nào và kéo dài trong bao lâu?",["Bắt đầu lúc 8h00 sáng, kéo dài 60 phút.","Bắt đầu từ 11h30 hoặc 19h30, kéo dài khoảng 2 giờ.","Bắt đầu lúc 15h00, kéo dài 4 giờ liên tục.","Kéo dài từ 22h00 đêm đến sáng hôm sau."],"B"],["2-56",2,56,"","Quy tắc \"Tách các cặp vợ chồng\" (Separation of Couples) trên bàn tiệc ngoại giao phương Tây nhằm mục đích gì?",["Giúp các cặp vợ chồng giữ bí mật công tác nội bộ.","Không xếp vợ chồng ngồi cạnh nhau hoặc đối diện nhau để khuyến khích họ giao tiếp, làm quen với những người xung quanh.","Tránh xung đột pháp lý về tài sản chung.","Tiết kiệm diện tích sắp xếp các bộ dụng cụ ăn."],"B"],["2-57",2,57,"","Quy chuẩn nghiệp vụ phục vụ của nhân viên lễ tân đối với các món bánh mì, salad và đĩa thức ăn lớn chia phần là:",["Phục vụ từ bên TRÁI của khách.","Phục vụ từ bên PHẢI của khách.","Đặt thẳng từ trên đầu khách xuống bàn.","Để khách tự với tay lấy từ bàn đẩy thức ăn."],"A"],["2-58",2,58,"","Nhân viên lễ tân thực hiện việc rót nước khoáng, phục vụ rượu vang và thu dọn đĩa thức ăn chính từ hướng nào của khách?",["Thực hiện từ bên TRÁI của khách.","Thực hiện từ bên PHẢI của khách.","Đứng ở đầu bàn tiệc và chuyền tay qua các khách.","Thu dọn ngẫu nhiên theo vị trí đứng thuận tiện nhất."],"B"],["2-59",2,59,"","Trong cách bài trí ly trên bàn tiệc phương Tây (phía trên bên phải đĩa ăn), chiếc ly có kích thước lớn nhất và nằm trong cùng là ly gì?",["Ly uống rượu Champagne (Flûte).","Ly uống rượu vang đỏ (Red Wine Glass).","Ly uống nước lọc / nước khoáng (Water Goblet).","Ly uống rượu mạnh (Digestif Glass)."],"C"],["2-60",2,60,"","Tín hiệu dao nĩa đặt bắt chéo nhau trên mặt đĩa ăn trong tiệc phong cách Âu thể hiện thông điệp gì?",["Khách đang tạm dừng ăn (Break) và sẽ dùng tiếp.","Khách đã dùng bữa xong và yêu cầu dọn đĩa (Finished).","Khách không hài lòng về chất lượng món ăn (Didn't like).","Khách khen món ăn rất ngon miệng (Excellent)."],"A"],["2-61",2,61,"","Khi hoàn thành món ăn (Finished), vị trí đặt dao và nĩa chuẩn mực theo nghi thức quốc tế là:",["Cắm đứng lưỡi dao vào đĩa thức ăn.","Gác mũi nĩa sang đĩa của người bên cạnh.","Đặt dao và nĩa song song với nhau hướng về góc 5 giờ hoặc 6 giờ.","Đặt dao nĩa nằm ngang hai bên mép khăn trải bàn."],"C"],["2-62",2,62,"","Tại sao trong các thực đơn chiêu đãi ngoại giao chính thức, ban tổ chức luôn chủ động TRÁNH các món như cua nguyên con chưa bóc, tôm hùm nguyên vỏ hoặc thịt có nhiều xương nhỏ?",["Giá thành nguyên liệu quá đắt đỏ so với ngân sách nhà nước.","Tránh việc khách phải thao tác bóc vỏ phức tạp bằng tay, dễ làm văng bắn bẩn trang phục và mất phong thái lịch thiệp.","Tôm cua là những động vật bị luật quốc tế cấm đánh bắt.","Các món này chỉ được phục vụ trong các tiệc tang lễ giải uế."],"B"],["2-63",2,63,"","Món bánh \"Diplomat Cake\" mang tên chính trị ra đời tại Hội nghị Vienna (1814-1815) là bài học sâu sắc về nghệ thuật ẩm thực ngoại giao ở khía cạnh nào?",["Sử dụng vàng lá nguyên chất để chứng tỏ quyền lực tuyệt đối.","Sự khéo léo, tiết kiệm, tận dụng nguyên liệu bánh mì dư thừa để biến tấu tinh tế thành món pudding cao cấp chinh phục thực khách.","Áp đặt khẩu vị ẩm thực của nước chủ nhà lên tất cả các nước tham gia.","Bắt buộc thực khách phải ăn chay hoàn toàn trong hội nghị."],"B"],["2-64",2,64,"","Hoạt động của Thủ tướng Canada Justin Trudeau thưởng thức Cà phê sữa đá vỉa hè tại TP. Hồ Chí Minh năm 2017 là ví dụ điển hình của nghệ thuật ngoại giao nào?",["Ngoại giao pháo hạm (Gunboat Diplomacy).","Ngoại giao ẩm thực vỉa hè / bình dân (Street-food Diplomacy) nhằm tạo thiện cảm và sức hút truyền thông.","Ngoại giao số trên mạng xã hội.","Ngoại giao đa phương tại diễn đàn Liên Hợp Quốc."],"B"],["2-65",2,65,"","Tại Bồ Đào Nha, hành vi khách tự ý hỏi xin thêm muối và hạt tiêu khi trên bàn ăn không bày sẵn bị đánh giá như thế nào?",["Thể hiện sự hiểu biết sâu sắc về nghệ thuật gia vị ẩm thực.","Bị xem là hành vi khiếm nhã, chê bai tay nghề của người đầu bếp (nghề nghiệp vốn rất được tôn trọng).","Là tín hiệu khen ngợi món ăn rất vừa miệng.","Không ảnh hưởng gì đến không khí xã giao."],"B"],["2-66",2,66,"","Trong quy chuẩn giao tiếp của người Nhật Bản, hành vi chỉ trỏ trực tiếp bằng một ngón tay trỏ bị xem là thô lỗ, quy chuẩn đúng bắt buộc phải làm là gì?",["Dùng ngón tay cái chỉ ngược về phía sau lưng.","Dùng cả bàn tay ngửa lên nhẹ nhàng để hướng dẫn và chỉ dẫn.","Nháy mắt và hất cằm về hướng đối tượng.","Khoanh hai tay trước ngực và khua nhẹ cùi chỏ."],"B"],["2-67",2,67,"","Nghiên cứu nhân học của Tiến sĩ Ken Cooper về tần suất tiếp xúc cơ thể (Haptics) tại các nền văn hóa ghi nhận cư dân thành phố London (Anh) có tần suất chạm cơ thể là bao nhiêu?",["0 lần / giờ (văn hóa hạn chế tiếp xúc - Low-contact culture).","180 lần / giờ.","110 lần / giờ.","25 lần / giờ."],"A"],["2-68",2,68,"","Trong tập quán giao tiếp và tặng hoa của người Pháp, loài hoa nào tuyệt đối kiêng kỵ không được đem tặng trong các dịp chúc mừng sinh nhật hoặc tân gia?",["Hoa phong lan trắng.","Hoa hồng đỏ có gai.","Hoa cúc (loài hoa biểu trưng cho tang lễ và sự đau buồn).","Hoa hướng dương vàng."],"C"],["2-69",2,69,"","Chiến dịch đưa dòng xe Ford \"Pinto\" vào thị trường Brazil bị thất bại nghiêm trọng và buộc phải đổi tên thành Corcel bắt nguồn từ sự cố văn hóa nào?",["Màu sơn của xe trùng với màu tang lễ của thổ dân Nam Mỹ.","Trong tiếng lóng của người Brazil, từ \"Pinto\" mang nghĩa nhạy cảm là \"bộ phận sinh dục nam nhỏ\".","Xe bị lỗi không thể vận hành được trên địa hình đồi núi.","Tên gọi xe trùng với tên của vị tướng lĩnh giải phóng dân tộc Brazil."],"B"],["2-70",2,70,"","Hồ sơ di sản nào của Việt Nam đã được UNESCO chính thức ghi danh vào Danh mục Di sản tư liệu thuộc Chương trình \"Ký ức Thế giới\" khu vực Châu Á - Thái Bình Dương năm 2010?",["Mộc bản kinh Phật chùa Vĩnh Nghiêm.","82 Bia Tiến sĩ Văn Miếu - Quốc Tử Giám thời Lê - Mạc.","Mộc bản triều Nguyễn.","Hoàng thành Thăng Long."],"B"]];
+  const QUESTIONS = RAW_BANK.map(([id, exam, num, level, stem, options, answer]) => ({
+    id, exam, num, level, stem, options, answer
+  }));
+  const Q_BY_ID = new Map(QUESTIONS.map((q) => [q.id, q]));
+  const LETTERS = ['A', 'B', 'C', 'D'];
+  const STORAGE_KEY = 'ltng_v1_state';
+
+  // Minimal zero-dependency QR Code encoder (ISO/IEC 18004, Byte mode, ECC M, Versions 1..8)
+const GF_EXP = new Uint8Array(512);
+const GF_LOG = new Uint8Array(256);
+(() => {
+  let x = 1;
+  for (let i = 0; i < 255; i++) {
+    GF_EXP[i] = x;
+    GF_LOG[x] = i;
+    x <<= 1;
+    if (x & 0x100) x ^= 0x11d;
+  }
+  for (let i = 255; i < 512; i++) GF_EXP[i] = GF_EXP[i - 255];
+})();
+
+function gfMul(a, b) {
+  return a === 0 || b === 0 ? 0 : GF_EXP[GF_LOG[a] + GF_LOG[b]];
+}
+
+function rsGeneratorPoly(ecLen) {
+  let g = [1];
+  for (let i = 0; i < ecLen; i++) {
+    const next = new Array(g.length + 1).fill(0);
+    const root = GF_EXP[i];
+    for (let j = 0; j < g.length; j++) {
+      next[j] ^= g[j];
+      next[j + 1] ^= gfMul(g[j], root);
+    }
+    g = next;
+  }
+  return g;
+}
+
+function rsEncode(data, ecLen) {
+  const gen = rsGeneratorPoly(ecLen);
+  const res = new Uint8Array(data.length + ecLen);
+  res.set(data);
+  for (let i = 0; i < data.length; i++) {
+    const coef = res[i];
+    if (coef !== 0) {
+      for (let j = 0; j < gen.length; j++) {
+        res[i + j] ^= gfMul(gen[j], coef);
+      }
+    }
+  }
+  return res.slice(data.length);
+}
+
+// Version specs for ECC Level M: [totalDataBytes, ecPerBlock, [group1Count, group1Data, group2Count, group2Data], alignCoords]
+const SPECS_M = {
+  1: [16, 10, [1, 16, 0, 0], []],
+  2: [28, 16, [1, 28, 0, 0], [6, 18]],
+  3: [44, 26, [1, 44, 0, 0], [6, 22]],
+  4: [64, 18, [2, 32, 0, 0], [6, 26]],
+  5: [86, 24, [2, 43, 0, 0], [6, 30]],
+  6: [108, 16, [4, 27, 0, 0], [6, 34]],
+  7: [124, 18, [4, 31, 0, 0], [6, 22, 38]],
+  8: [154, 22, [2, 38, 2, 39], [6, 24, 42]],
+};
+
+function encodeBytesToCodewords(bytes) {
+  let version = 0;
+  for (let v = 1; v <= 8; v++) {
+    // 4-bit mode + 8-bit length + 8*bytes + up to 4 terminator bits <= totalDataBytes*8
+    if (4 + 8 + bytes.length * 8 <= SPECS_M[v][0] * 8) {
+      version = v;
+      break;
+    }
+  }
+  if (!version) throw new Error('QR payload too long for Versions 1..8');
+
+  const [totalData, ecLen, [g1c, g1d, g2c, g2d], align] = SPECS_M[version];
+  const bits = [];
+  const pushBits = (val, len) => {
+    for (let i = len - 1; i >= 0; i--) bits.push((val >> i) & 1);
+  };
+  pushBits(0b0100, 4); // Byte mode
+  pushBits(bytes.length, 8); // Char count (V1..V9)
+  for (const b of bytes) pushBits(b, 8);
+  const maxBits = totalData * 8;
+  for (let i = 0; i < 4 && bits.length < maxBits; i++) bits.push(0);
+  while (bits.length % 8 !== 0) bits.push(0);
+
+  const data = [];
+  for (let i = 0; i < bits.length; i += 8) {
+    let val = 0;
+    for (let j = 0; j < 8; j++) val = (val << 1) | bits[i + j];
+    data.push(val);
+  }
+  const pads = [0xec, 0x11];
+  let pi = 0;
+  while (data.length < totalData) {
+    data.push(pads[pi & 1]);
+    pi++;
+  }
+
+  // Split into blocks and interleave
+  const blocksData = [];
+  const blocksEc = [];
+  let offset = 0;
+  for (let i = 0; i < g1c; i++) {
+    const slice = data.slice(offset, offset + g1d);
+    offset += g1d;
+    blocksData.push(slice);
+    blocksEc.push(Array.from(rsEncode(slice, ecLen)));
+  }
+  for (let i = 0; i < g2c; i++) {
+    const slice = data.slice(offset, offset + g2d);
+    offset += g2d;
+    blocksData.push(slice);
+    blocksEc.push(Array.from(rsEncode(slice, ecLen)));
+  }
+
+  const finalBytes = [];
+  const maxD = Math.max(g1d, g2d);
+  for (let i = 0; i < maxD; i++) {
+    for (const bd of blocksData) if (i < bd.length) finalBytes.push(bd[i]);
+  }
+  for (let i = 0; i < ecLen; i++) {
+    for (const be of blocksEc) if (i < be.length) finalBytes.push(be[i]);
+  }
+
+  return { version, align, finalBytes };
+}
+
+function calcFormatBits(maskIdx) {
+  // ECC Level M = 00
+  const data = (0b00 << 3) | maskIdx;
+  let rem = data << 10;
+  const gen = 0b10100110111;
+  for (let i = 14; i >= 10; i--) {
+    if ((rem >> i) & 1) rem ^= gen << (i - 10);
+  }
+  return ((data << 10) | rem) ^ 0b101010000010010;
+}
+
+function calcVersionBits(version) {
+  let rem = version << 12;
+  const gen = 0b1111100100101;
+  for (let i = 17; i >= 12; i--) {
+    if ((rem >> i) & 1) rem ^= gen << (i - 12);
+  }
+  return (version << 12) | rem;
+}
+
+function createMatrix(version, align, finalBytes) {
+  const size = version * 4 + 17;
+  const mod = Array.from({ length: size }, () => new Int8Array(size).fill(-1));
+  const isFunc = Array.from({ length: size }, () => new Uint8Array(size));
+
+  const setFunc = (r, c, v) => {
+    if (r >= 0 && r < size && c >= 0 && c < size) {
+      mod[r][c] = v ? 1 : 0;
+      isFunc[r][c] = 1;
+    }
+  };
+
+  const drawFinder = (r0, c0) => {
+    for (let dr = -1; dr <= 7; dr++) {
+      for (let dc = -1; dc <= 7; dc++) {
+        const r = r0 + dr, c = c0 + dc;
+        if (r < 0 || r >= size || c < 0 || c >= size) continue;
+        const on =
+          (dr >= 0 && dr <= 6 && (dc === 0 || dc === 6)) ||
+          (dc >= 0 && dc <= 6 && (dr === 0 || dr === 6)) ||
+          (dr >= 2 && dr <= 4 && dc >= 2 && dc <= 4);
+        setFunc(r, c, on);
+      }
+    }
+  };
+  drawFinder(0, 0);
+  drawFinder(0, size - 7);
+  drawFinder(size - 7, 0);
+
+  // Alignment patterns
+  for (const ar of align) {
+    for (const ac of align) {
+      if ((ar === 6 && ac === 6) || (ar === 6 && ac === size - 7) || (ar === size - 7 && ac === 6)) continue;
+      for (let dr = -2; dr <= 2; dr++) {
+        for (let dc = -2; dc <= 2; dc++) {
+          const on = Math.abs(dr) === 2 || Math.abs(dc) === 2 || (dr === 0 && dc === 0);
+          setFunc(ar + dr, ac + dc, on);
+        }
+      }
+    }
+  }
+
+  // Timing patterns
+  for (let i = 8; i < size - 8; i++) {
+    const bit = i % 2 === 0;
+    if (!isFunc[6][i]) setFunc(6, i, bit);
+    if (!isFunc[i][6]) setFunc(i, 6, bit);
+  }
+
+  // Dark module
+  setFunc(size - 8, 8, true);
+
+  // Reserve format info zones
+  for (let i = 0; i <= 8; i++) {
+    if (!isFunc[8][i]) setFunc(8, i, false);
+    if (!isFunc[i][8]) setFunc(i, 8, false);
+  }
+  for (let i = size - 8; i < size; i++) {
+    if (!isFunc[8][i]) setFunc(8, i, false);
+  }
+  for (let i = size - 7; i < size; i++) {
+    if (!isFunc[i][8]) setFunc(i, 8, false);
+  }
+
+  // Version info for V7+
+  if (version >= 7) {
+    const vb = calcVersionBits(version);
+    for (let i = 0; i < 18; i++) {
+      const bit = Boolean((vb >> i) & 1);
+      const a = Math.floor(i / 3);
+      const b = size - 11 + (i % 3);
+      setFunc(a, b, bit);
+      setFunc(b, a, bit);
+    }
+  }
+
+  // Place data bits in zig-zag
+  const allBits = [];
+  for (const byte of finalBytes) {
+    for (let b = 7; b >= 0; b--) allBits.push((byte >> b) & 1);
+  }
+  let bitIdx = 0;
+  let upward = true;
+  for (let right = size - 1; right >= 1; right -= 2) {
+    if (right === 6) right = 5;
+    for (let step = 0; step < size; step++) {
+      const r = upward ? size - 1 - step : step;
+      for (let dx = 0; dx < 2; dx++) {
+        const c = right - dx;
+        if (!isFunc[r][c]) {
+          mod[r][c] = bitIdx < allBits.length ? allBits[bitIdx++] : 0;
+        }
+      }
+    }
+    upward = !upward;
+  }
+
+  // Try all 8 masks and choose lowest penalty
+  const masks = [
+    (r, c) => (r + c) % 2 === 0,
+    (r, c) => r % 2 === 0,
+    (r, c) => c % 3 === 0,
+    (r, c) => (r + c) % 3 === 0,
+    (r, c) => (Math.floor(r / 2) + Math.floor(c / 3)) % 2 === 0,
+    (r, c) => ((r * c) % 2) + ((r * c) % 3) === 0,
+    (r, c) => (((r * c) % 2) + ((r * c) % 3)) % 2 === 0,
+    (r, c) => (((r + c) % 2) + ((r * c) % 3)) % 2 === 0,
+  ];
+
+  const writeFormat = (grid, maskIdx) => {
+    const fb = calcFormatBits(maskIdx);
+    for (let i = 0; i <= 5; i++) grid[8][i] = (fb >> i) & 1;
+    grid[8][7] = (fb >> 6) & 1;
+    grid[8][8] = (fb >> 7) & 1;
+    grid[7][8] = (fb >> 8) & 1;
+    for (let i = 9; i < 15; i++) grid[14 - i][8] = (fb >> i) & 1;
+
+    for (let i = 0; i < 8; i++) grid[8][size - 1 - i] = (fb >> i) & 1;
+    for (let i = 8; i < 15; i++) grid[size - 15 + i][8] = (fb >> i) & 1;
+  };
+
+  const penalty = (grid) => {
+    let score = 0;
+    // Rule 1: 5+ consecutive same color in rows and cols
+    for (let r = 0; r < size; r++) {
+      let run = 1;
+      for (let c = 1; c < size; c++) {
+        if (grid[r][c] === grid[r][c - 1]) run++;
+        else { if (run >= 5) score += 3 + (run - 5); run = 1; }
+      }
+      if (run >= 5) score += 3 + (run - 5);
+    }
+    for (let c = 0; c < size; c++) {
+      let run = 1;
+      for (let r = 1; r < size; r++) {
+        if (grid[r][c] === grid[r - 1][c]) run++;
+        else { if (run >= 5) score += 3 + (run - 5); run = 1; }
+      }
+      if (run >= 5) score += 3 + (run - 5);
+    }
+    // Rule 2: 2x2 blocks
+    for (let r = 0; r < size - 1; r++) {
+      for (let c = 0; c < size - 1; c++) {
+        const v = grid[r][c];
+        if (v === grid[r][c + 1] && v === grid[r + 1][c] && v === grid[r + 1][c + 1]) score += 3;
+      }
+    }
+    // Rule 3: finder-like patterns
+    const checkSeq = (arr) => {
+      let hits = 0;
+      for (let i = 0; i <= arr.length - 11; i++) {
+        if (
+          (arr[i]===1&&arr[i+1]===0&&arr[i+2]===1&&arr[i+3]===1&&arr[i+4]===1&&arr[i+5]===0&&arr[i+6]===1&&arr[i+7]===0&&arr[i+8]===0&&arr[i+9]===0&&arr[i+10]===0) ||
+          (arr[i]===0&&arr[i+1]===0&&arr[i+2]===0&&arr[i+3]===0&&arr[i+4]===1&&arr[i+5]===0&&arr[i+6]===1&&arr[i+7]===1&&arr[i+8]===1&&arr[i+9]===0&&arr[i+10]===1)
+        ) hits++;
+      }
+      return hits * 40;
+    };
+    for (let r = 0; r < size; r++) score += checkSeq(grid[r]);
+    for (let c = 0; c < size; c++) {
+      const col = [];
+      for (let r = 0; r < size; r++) col.push(grid[r][c]);
+      score += checkSeq(col);
+    }
+    // Rule 4: dark ratio
+    let dark = 0;
+    for (let r = 0; r < size; r++) for (let c = 0; c < size; c++) if (grid[r][c]) dark++;
+    const pct = (dark * 100) / (size * size);
+    const prev5 = Math.abs(Math.floor(pct / 5) * 5 - 50) / 5;
+    const next5 = Math.abs(Math.ceil(pct / 5) * 5 - 50) / 5;
+    score += Math.min(prev5, next5) * 10;
+    return score;
+  };
+
+  let bestGrid = null;
+  let bestScore = Infinity;
+  for (let m = 0; m < 8; m++) {
+    const g = mod.map((row, r) => row.map((v, c) => (isFunc[r][c] ? v : v ^ (masks[m](r, c) ? 1 : 0))));
+    writeFormat(g, m);
+    const s = penalty(g);
+    if (s < bestScore) {
+      bestScore = s;
+      bestGrid = g;
+    }
+  }
+  return bestGrid;
+}
+
+function generateQrMatrix(text) {
+  const bytes = new TextEncoder().encode(text);
+  const { version, align, finalBytes } = encodeBytesToCodewords(bytes);
+  return createMatrix(version, align, finalBytes);
+}
+
+function generateQrSvg(text, darkColor = '#0F2942', lightColor = '#FFFFFF') {
+  const matrix = generateQrMatrix(text);
+  const n = matrix.length;
+  const pad = 4;
+  const total = n + pad * 2;
+  let rects = '';
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < n; c++) {
+      if (matrix[r][c]) {
+        rects += `<rect x="${c + pad}" y="${r + pad}" width="1" height="1"/>`;
+      }
+    }
+  }
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${total} ${total}" shape-rendering="crispEdges" role="img" aria-label="Mã QR truy cập nhanh"><rect width="${total}" height="${total}" fill="${lightColor}"/><g fill="${darkColor}">${rects}</g></svg>`;
+}
+
+
+  const ICONS = {
+    check: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>',
+    cross: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>',
+    flag: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>',
+    flagSolid: '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>',
+    clock: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+    shuffle: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>',
+    refresh: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>',
+    info: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>'
+  };
+
+  function shuffleIds(ids) {
+    const arr = [...ids];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function defaultTimeForDeck(deckId) {
+    return deckId === 'mixed' ? 90 * 60 : 45 * 60;
+  }
+
+  function createEmptyProgress(deckId) {
+    return {
+      index: 0,
+      answers: {},
+      flags: {},
+      submitted: false,
+      onlyWrongReview: false,
+      timeLeft: defaultTimeForDeck(deckId),
+      elapsed: 0,
+    };
+  }
+
+  function createInitialState() {
+    const allIds = QUESTIONS.map((q) => q.id);
+    return {
+      deck: 'exam1',
+      mode: 'practice',
+      ballotFilter: 'all',
+      mixedOrder: shuffleIds(allIds),
+      wrongIds: [],
+      progress: {
+        'exam1:practice': createEmptyProgress('exam1'),
+        'exam2:practice': createEmptyProgress('exam2'),
+        'mixed:practice': createEmptyProgress('mixed'),
+        'wrong:practice': createEmptyProgress('wrong'),
+        'exam1:exam': createEmptyProgress('exam1'),
+        'exam2:exam': createEmptyProgress('exam2'),
+        'mixed:exam': createEmptyProgress('mixed'),
+        'wrong:exam': createEmptyProgress('wrong'),
+      },
+    };
+  }
+
+  function loadState() {
+    const fresh = createInitialState();
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return fresh;
+      const saved = JSON.parse(raw);
+      if (saved && typeof saved === 'object') {
+        if (['exam1', 'exam2', 'mixed', 'wrong'].includes(saved.deck)) fresh.deck = saved.deck;
+        if (['practice', 'exam'].includes(saved.mode)) fresh.mode = saved.mode;
+        if (Array.isArray(saved.mixedOrder) && saved.mixedOrder.length === 140) {
+          const valid = saved.mixedOrder.every((id) => Q_BY_ID.has(id));
+          if (valid) fresh.mixedOrder = saved.mixedOrder;
+        }
+        if (Array.isArray(saved.wrongIds)) {
+          fresh.wrongIds = saved.wrongIds.filter((id) => Q_BY_ID.has(id));
+        }
+        if (saved.progress && typeof saved.progress === 'object') {
+          for (const k of Object.keys(fresh.progress)) {
+            if (saved.progress[k]) {
+              fresh.progress[k] = { ...fresh.progress[k], ...saved.progress[k] };
+            }
+          }
+        }
+      }
+    } catch {}
+    return fresh;
+  }
+
+  let state = loadState();
+  let timerHandle = null;
+  let pendingConfirmAction = null;
+
+  function saveState() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch {}
+  }
+
+  function sessionKey() {
+    return state.deck + ':' + state.mode;
+  }
+
+  function currentProgress() {
+    return state.progress[sessionKey()];
+  }
+
+  function getDeckQuestionIds(deckId = state.deck) {
+    if (deckId === 'exam1') return QUESTIONS.filter((q) => q.exam === 1).map((q) => q.id);
+    if (deckId === 'exam2') return QUESTIONS.filter((q) => q.exam === 2).map((q) => q.id);
+    if (deckId === 'mixed') return state.mixedOrder;
+    return state.wrongIds.filter((id) => Q_BY_ID.has(id));
+  }
+
+  function formatSec(sec) {
+    const s = Math.max(0, Math.floor(sec));
+    const m = Math.floor(s / 60);
+    const r = s % 60;
+    return String(m).padStart(2, '0') + ':' + String(r).padStart(2, '0');
+  }
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function syncTimer() {
+    if (timerHandle) {
+      clearInterval(timerHandle);
+      timerHandle = null;
+    }
+    const ids = getDeckQuestionIds();
+    const prog = currentProgress();
+    if (state.mode === 'exam' && !prog.submitted && ids.length > 0 && prog.timeLeft > 0) {
+      timerHandle = setInterval(() => {
+        const p = currentProgress();
+        if (state.mode !== 'exam' || p.submitted || getDeckQuestionIds().length === 0) {
+          syncTimer();
+          return;
+        }
+        p.timeLeft = Math.max(0, p.timeLeft - 1);
+        p.elapsed = (p.elapsed || 0) + 1;
+        const timerEl = document.getElementById('live-timer-val');
+        if (timerEl) timerEl.textContent = formatSec(p.timeLeft);
+        if (p.timeLeft === 0) {
+          submitExam(true);
+        } else if (p.timeLeft % 5 === 0) {
+          saveState();
+        }
+      }, 1000);
+    }
+  }
+
+  function addWrongId(qid) {
+    if (!state.wrongIds.includes(qid)) {
+      state.wrongIds.push(qid);
+    }
+  }
+
+  function removeWrongId(qid) {
+    state.wrongIds = state.wrongIds.filter((id) => id !== qid);
+    const wp = state.progress['wrong:practice'];
+    const we = state.progress['wrong:exam'];
+    delete wp.answers[qid];
+    delete we.answers[qid];
+    const remaining = getDeckQuestionIds('wrong').length;
+    if (state.deck === 'wrong' && remaining > 0) {
+      wp.index = Math.min(wp.index, remaining - 1);
+      we.index = Math.min(we.index, remaining - 1);
+    } else if (state.deck === 'wrong' && remaining === 0) {
+      wp.index = 0;
+      we.index = 0;
+    }
+  }
+
+  function selectOption(letter) {
+    const ids = getDeckQuestionIds();
+    if (!ids.length) return;
+    const prog = currentProgress();
+    if (state.mode === 'exam' && prog.submitted) return;
+    if (state.mode === 'practice' && prog.answers[ids[prog.index]]) return;
+
+    const qid = ids[prog.index];
+    const q = Q_BY_ID.get(qid);
+    prog.answers[qid] = letter;
+
+    if (state.mode === 'practice') {
+      if (letter !== q.answer) addWrongId(qid);
+    }
+    saveState();
+    render();
+  }
+
+  function submitExam(autoTimeout = false) {
+    const ids = getDeckQuestionIds();
+    const prog = currentProgress();
+    if (prog.submitted || !ids.length) return;
+
+    const unanswered = ids.filter((id) => !prog.answers[id]).length;
+    if (!autoTimeout && unanswered > 0) {
+      openConfirm(
+        'Nộp bài thi thử?',
+        'Còn ' + unanswered + ' câu chưa trả lời. Bạn vẫn muốn nộp bài và chấm điểm ngay bây giờ?',
+        () => finalizeExamSubmit()
+      );
+      return;
+    }
+    finalizeExamSubmit();
+  }
+
+  function finalizeExamSubmit() {
+    const ids = getDeckQuestionIds();
+    const prog = currentProgress();
+    prog.submitted = true;
+    for (const id of ids) {
+      const q = Q_BY_ID.get(id);
+      if (prog.answers[id] && prog.answers[id] !== q.answer) {
+        addWrongId(id);
+      }
+    }
+    syncTimer();
+    saveState();
+    const main = document.getElementById('main-stage');
+    if (main) main.scrollTop = 0;
+    render();
+  }
+
+  function resetCurrentDeck() {
+    const key = sessionKey();
+    const fresh = createEmptyProgress(state.deck);
+    state.progress[key] = fresh;
+    if (state.deck === 'mixed') {
+      state.mixedOrder = shuffleIds(QUESTIONS.map((q) => q.id));
+    }
+    saveState();
+    syncTimer();
+    render();
+  }
+
+  function openConfirm(title, message, onOk) {
+    document.getElementById('confirm-title').textContent = title;
+    document.getElementById('confirm-msg').textContent = message;
+    pendingConfirmAction = onOk;
+    const bd = document.getElementById('confirm-backdrop');
+    bd.classList.add('open');
+    bd.setAttribute('aria-hidden', 'false');
+    document.getElementById('btn-confirm-ok').focus();
+  }
+
+  function closeConfirm() {
+    pendingConfirmAction = null;
+    const bd = document.getElementById('confirm-backdrop');
+    bd.classList.remove('open');
+    bd.setAttribute('aria-hidden', 'true');
+  }
+
+  function renderBallotGroup(containerEl, filterEl, legendEl, titleEl, isDrawer) {
+    const ids = getDeckQuestionIds();
+    const prog = currentProgress();
+    const total = ids.length;
+    const answeredCount = ids.filter((id) => Boolean(prog.answers[id])).length;
+
+    if (titleEl) {
+      titleEl.textContent = isDrawer
+        ? 'Bảng câu hỏi (' + answeredCount + '/' + total + ')'
+        : 'Bảng ' + total + ' câu (' + answeredCount + '/' + total + ')';
+    }
+
+    const filters = [
+      { id: 'all', label: 'Tất cả (' + total + ')' },
+      { id: 'todo', label: 'Chưa làm' },
+      { id: 'flagged', label: 'Đánh dấu' },
+    ];
+    if (state.mode === 'practice' || prog.submitted) {
+      filters.push({ id: 'wrong', label: 'Làm sai' });
+    }
+    if (!filters.some((f) => f.id === state.ballotFilter)) state.ballotFilter = 'all';
+
+    filterEl.innerHTML = filters
+      .map(
+        (f) =>
+          '<button type="button" class="filter-chip' +
+          (state.ballotFilter === f.id ? ' active' : '') +
+          '" data-bfilter="' + f.id + '">' +
+          f.label +
+          '</button>'
+      )
+      .join('');
+
+    filterEl.querySelectorAll('[data-bfilter]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        state.ballotFilter = btn.dataset.bfilter;
+        renderBallots();
+      });
+    });
+
+    const filteredIndices = [];
+    ids.forEach((id, idx) => {
+      const q = Q_BY_ID.get(id);
+      const ans = prog.answers[id];
+      const flagged = Boolean(prog.flags[id]);
+      if (state.ballotFilter === 'todo' && ans) return;
+      if (state.ballotFilter === 'flagged' && !flagged) return;
+      if (state.ballotFilter === 'wrong' && (!ans || ans === q.answer)) return;
+      filteredIndices.push({ id, idx, q, ans, flagged });
+    });
+
+    if (filteredIndices.length === 0) {
+      containerEl.innerHTML =
+        '<div style="grid-column:1/-1;padding:18px 8px;text-align:center;color:#475569;font-size:13px;">Không có câu nào trong mục lọc này.</div>';
+    } else {
+      containerEl.innerHTML = filteredIndices
+        .map(({ idx, q, ans, flagged }) => {
+          const classes = ['bcell'];
+          if (idx === prog.index) classes.push('current');
+          if (ans) {
+            if (state.mode === 'practice' || prog.submitted) {
+              classes.push(ans === q.answer ? 'ok' : 'bad');
+            } else {
+              classes.push('picked');
+            }
+          }
+          if (flagged) classes.push('flagged');
+          return (
+            '<button type="button" class="' +
+            classes.join(' ') +
+            '" data-jump="' +
+            idx +
+            '" aria-label="Câu ' +
+            (idx + 1) +
+            '">' +
+            String(idx + 1).padStart(2, '0') +
+            '</button>'
+          );
+        })
+        .join('');
+
+      containerEl.querySelectorAll('[data-jump]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          prog.index = Number(btn.dataset.jump);
+          saveState();
+          if (isDrawer) closeBallotDrawer();
+          render();
+        });
+      });
+    }
+
+    if (state.mode === 'exam' && !prog.submitted) {
+      legendEl.innerHTML =
+        '<span class="leg-item"><span class="leg-dot"></span>Chưa chọn</span>' +
+        '<span class="leg-item"><span class="leg-dot picked"></span>Đã chọn</span>' +
+        '<span class="leg-item"><span class="leg-dot flag"></span>Đánh dấu</span>';
+    } else {
+      legendEl.innerHTML =
+        '<span class="leg-item"><span class="leg-dot"></span>Chưa làm</span>' +
+        '<span class="leg-item"><span class="leg-dot ok"></span>Đúng</span>' +
+        '<span class="leg-item"><span class="leg-dot bad"></span>Sai</span>' +
+        '<span class="leg-item"><span class="leg-dot flag"></span>Đánh dấu</span>';
+    }
+  }
+
+  function renderBallots() {
+    renderBallotGroup(
+      document.getElementById('desktop-ballot'),
+      document.getElementById('desktop-filters'),
+      document.getElementById('desktop-legend'),
+      document.getElementById('desktop-rail-title'),
+      false
+    );
+    renderBallotGroup(
+      document.getElementById('drawer-ballot'),
+      document.getElementById('drawer-filters'),
+      document.getElementById('drawer-legend'),
+      document.getElementById('drawer-title'),
+      true
+    );
+  }
+
+  function renderStatus(ids, prog) {
+    const right = document.getElementById('status-right');
+    const progFill = document.getElementById('prog-fill');
+    const total = ids.length;
+    const answered = ids.filter((id) => Boolean(prog.answers[id])).length;
+    const pct = total > 0 ? Math.round((answered / total) * 100) : 0;
+    progFill.style.width = pct + '%';
+
+    if (total === 0) {
+      right.innerHTML = '';
+      return;
+    }
+
+    if (state.mode === 'practice') {
+      let correct = 0;
+      for (const id of ids) {
+        if (prog.answers[id] && prog.answers[id] === Q_BY_ID.get(id).answer) correct++;
+      }
+      const mixBtn =
+        state.deck === 'mixed'
+          ? '<button type="button" class="mini-action" id="btn-reshuffle" title="Xáo thứ tự 140 câu">' +
+            ICONS.shuffle +
+            '<span>Xáo đề</span></button>'
+          : '';
+      right.innerHTML =
+        '<span class="stat-pill' +
+        (answered > 0 ? ' good' : '') +
+        '">Đúng ' +
+        correct +
+        '/' +
+        answered +
+        '</span>' +
+        mixBtn;
+      const shBtn = document.getElementById('btn-reshuffle');
+      if (shBtn) {
+        shBtn.addEventListener('click', () => {
+          openConfirm('Xáo trộn lại 140 câu?', 'Lượt làm hiện tại của chế độ Trộn 140 sẽ bắt đầu lại từ đầu.', resetCurrentDeck);
+        });
+      }
+    } else if (!prog.submitted) {
+      const lowTime = prog.timeLeft <= 300;
+      right.innerHTML =
+        '<span class="stat-pill' +
+        (lowTime ? ' warn' : '') +
+        '">' +
+        ICONS.clock +
+        '<span id="live-timer-val">' +
+        formatSec(prog.timeLeft) +
+        '</span></span>' +
+        '<button type="button" class="mini-action primary" id="btn-submit-exam">Nộp bài (' +
+        answered +
+        '/' +
+        total +
+        ')</button>';
+      document.getElementById('btn-submit-exam').addEventListener('click', () => submitExam(false));
+    } else {
+      let correct = 0;
+      for (const id of ids) {
+        if (prog.answers[id] === Q_BY_ID.get(id).answer) correct++;
+      }
+      const score10 = ((correct / total) * 10).toFixed(2);
+      right.innerHTML =
+        '<span class="stat-pill good">' +
+        score10 +
+        ' điểm (' +
+        correct +
+        '/' +
+        total +
+        ')</span>' +
+        '<button type="button" class="mini-action" id="btn-retake-exam">' +
+        ICONS.refresh +
+        '<span>Thi lại</span></button>';
+      document.getElementById('btn-retake-exam').addEventListener('click', resetCurrentDeck);
+    }
+  }
+
+  function renderMain(ids, prog) {
+    const main = document.getElementById('main-stage');
+    if (ids.length === 0) {
+      main.innerHTML =
+        '<div class="empty-state">' +
+        '<h2>Chưa có câu làm sai</h2>' +
+        '<p>Các câu bạn trả lời nhầm ở Đề 1, Đề 2 hoặc Trộn 140 sẽ tự động lưu tại đây để ôn tập lại nhanh.</p>' +
+        '<button type="button" class="mini-action primary" id="btn-back-exam1">Quay về Đề 1 (70 câu)</button>' +
+        '</div>';
+      document.getElementById('btn-back-exam1').addEventListener('click', () => {
+        state.deck = 'exam1';
+        saveState();
+        render();
+      });
+      return;
+    }
+
+    if (prog.index >= ids.length) prog.index = ids.length - 1;
+    if (prog.index < 0) prog.index = 0;
+
+    let summaryHtml = '';
+    if (state.mode === 'exam' && prog.submitted) {
+      let correct = 0;
+      let wrong = 0;
+      let blank = 0;
+      for (const id of ids) {
+        const a = prog.answers[id];
+        if (!a) blank++;
+        else if (a === Q_BY_ID.get(id).answer) correct++;
+        else wrong++;
+      }
+      const score10 = ((correct / ids.length) * 10).toFixed(2);
+      summaryHtml =
+        '<section class="summary-card" aria-label="Kết quả bài thi">' +
+        '<div class="summary-head">' +
+        '<h2 class="summary-title">Kết quả bài thi thử</h2>' +
+        '<div class="score-big tnum">' + score10 + ' / 10</div>' +
+        '</div>' +
+        '<div class="summary-grid tnum">' +
+        '<div class="summary-cell"><div class="summary-cell-val" style="color:var(--teal);">' + correct + '</div><div class="summary-cell-lbl">Câu đúng</div></div>' +
+        '<div class="summary-cell"><div class="summary-cell-val" style="color:var(--crimson);">' + wrong + '</div><div class="summary-cell-lbl">Câu sai</div></div>' +
+        '<div class="summary-cell"><div class="summary-cell-val">' + formatSec(prog.elapsed || (defaultTimeForDeck(state.deck) - prog.timeLeft)) + '</div><div class="summary-cell-lbl">Thời gian (' + blank + ' bỏ trống)</div></div>' +
+        '</div>' +
+        '<div class="summary-actions">' +
+        (wrong > 0 ? '<button type="button" class="mini-action" id="btn-jump-first-wrong">Xem câu sai đầu tiên</button>' : '') +
+        '<button type="button" class="mini-action primary" id="btn-summary-retake">Làm lại đề thi mới</button>' +
+        '</div>' +
+        '</section>';
+    }
+
+    const qid = ids[prog.index];
+    const q = Q_BY_ID.get(qid);
+    const chosen = prog.answers[qid] || null;
+    const isFlagged = Boolean(prog.flags[qid]);
+    const showKey = state.mode === 'practice' ? Boolean(chosen) : prog.submitted;
+
+    const originTag =
+      state.deck === 'mixed' || state.deck === 'wrong'
+        ? '<span class="tag-chip">Đề ' + q.exam + ' · Câu ' + q.num + '</span>'
+        : '';
+    const levelTag = q.level ? '<span class="tag-chip tnum">Mức: (' + escapeHtml(q.level) + ')</span>' : '';
+
+    const optsHtml = q.options
+      .map((optText, idx) => {
+        const letter = LETTERS[idx];
+        const classes = ['opt'];
+        let iconHtml = '';
+        if (showKey) {
+          if (letter === q.answer) {
+            classes.push('correct');
+            iconHtml = ICONS.check;
+          } else if (chosen === letter) {
+            classes.push('wrong');
+            iconHtml = ICONS.cross;
+          }
+        } else if (chosen === letter) {
+          classes.push('selected');
+        }
+        const disabledAttr = showKey ? ' disabled' : '';
+        return (
+          '<button type="button" class="' + classes.join(' ') + '" data-opt="' + letter + '"' + disabledAttr + '>' +
+          '<span class="opt-badge">' + letter + '</span>' +
+          '<span class="opt-text">' + escapeHtml(optText) + '</span>' +
+          '<span class="opt-icon">' + iconHtml + '</span>' +
+          '</button>'
+        );
+      })
+      .join('');
+
+    let feedbackHtml = '';
+    if (showKey) {
+      let fbClass = 'neutral';
+      let fbText = 'Chưa trả lời · Đáp án đúng theo bảng: ' + q.answer;
+      let fbIcon = ICONS.info;
+      if (chosen === q.answer) {
+        fbClass = 'correct';
+        fbText = 'Chính xác — Đáp án đúng: ' + q.answer;
+        fbIcon = ICONS.check;
+      } else if (chosen) {
+        fbClass = 'wrong';
+        fbText = 'Chưa đúng — Bạn chọn ' + chosen + ', đáp án đúng: ' + q.answer;
+        fbIcon = ICONS.cross;
+      }
+      const graduateBtn =
+        state.deck === 'wrong' && chosen === q.answer
+          ? '<button type="button" class="mini-action" id="btn-graduate-wrong">Đã thuộc (bỏ khỏi câu sai)</button>'
+          : '';
+      feedbackHtml =
+        '<div class="feedback ' + fbClass + '" role="status" aria-live="polite">' +
+        '<div class="feedback-main">' + fbIcon + '<span>' + fbText + '</span></div>' +
+        graduateBtn +
+        '</div>';
+    }
+
+    main.innerHTML =
+      summaryHtml +
+      '<div class="qmeta">' +
+      '<div class="qmeta-left tnum">' +
+      '<span class="qnum-label">Câu ' + String(prog.index + 1).padStart(2, '0') + ' / ' + ids.length + '</span>' +
+      levelTag +
+      originTag +
+      '</div>' +
+      '<button type="button" class="flag-btn' + (isFlagged ? ' flagged' : '') + '" id="btn-flag-q" aria-pressed="' + isFlagged + '">' +
+      (isFlagged ? ICONS.flagSolid : ICONS.flag) +
+      '<span>' + (isFlagged ? 'Đã đánh dấu' : 'Đánh dấu') + '</span>' +
+      '</button>' +
+      '</div>' +
+      '<section class="qcard"><p class="qstem">' + escapeHtml(q.stem) + '</p></section>' +
+      '<div class="opts">' + optsHtml + '</div>' +
+      feedbackHtml;
+
+    main.querySelectorAll('[data-opt]').forEach((btn) => {
+      btn.addEventListener('click', () => selectOption(btn.dataset.opt));
+    });
+
+    const flagBtn = document.getElementById('btn-flag-q');
+    if (flagBtn) {
+      flagBtn.addEventListener('click', () => {
+        prog.flags[qid] = !prog.flags[qid];
+        saveState();
+        render();
+      });
+    }
+
+    const gradBtn = document.getElementById('btn-graduate-wrong');
+    if (gradBtn) {
+      gradBtn.addEventListener('click', () => {
+        removeWrongId(qid);
+        saveState();
+        render();
+      });
+    }
+
+    const jfw = document.getElementById('btn-jump-first-wrong');
+    if (jfw) {
+      jfw.addEventListener('click', () => {
+        const firstWrongIdx = ids.findIndex((id) => prog.answers[id] && prog.answers[id] !== Q_BY_ID.get(id).answer);
+        if (firstWrongIdx >= 0) {
+          prog.index = firstWrongIdx;
+          saveState();
+          render();
+        }
+      });
+    }
+
+    const sRetake = document.getElementById('btn-summary-retake');
+    if (sRetake) sRetake.addEventListener('click', resetCurrentDeck);
+  }
+
+  function renderDock(ids, prog) {
+    const prevBtn = document.getElementById('btn-prev');
+    const nextBtn = document.getElementById('btn-next');
+    const nextLbl = document.getElementById('btn-next-label');
+    const ballotLbl = document.getElementById('dock-ballot-label');
+
+    const total = ids.length;
+    const answered = ids.filter((id) => Boolean(prog.answers[id])).length;
+    ballotLbl.textContent = 'Bảng câu (' + answered + '/' + total + ')';
+
+    prevBtn.disabled = total === 0 || prog.index <= 0;
+    const atEnd = total === 0 || prog.index >= total - 1;
+    if (state.mode === 'exam' && !prog.submitted && atEnd && total > 0) {
+      nextBtn.disabled = false;
+      nextLbl.textContent = 'Nộp bài';
+      nextBtn.dataset.action = 'submit';
+    } else {
+      nextBtn.disabled = atEnd;
+      nextLbl.textContent = 'Câu tiếp theo';
+      nextBtn.dataset.action = 'next';
+    }
+  }
+
+  function render() {
+    document.querySelectorAll('.tab[data-deck]').forEach((tab) => {
+      tab.classList.toggle('active', tab.dataset.deck === state.deck);
+    });
+    document.getElementById('wrong-count').textContent = '(' + state.wrongIds.length + ')';
+
+    const pBtn = document.getElementById('btn-mode-practice');
+    const eBtn = document.getElementById('btn-mode-exam');
+    pBtn.className = 'mode-btn' + (state.mode === 'practice' ? ' active' : '');
+    eBtn.className = 'mode-btn' + (state.mode === 'exam' ? ' exam-active' : '');
+
+    const ids = getDeckQuestionIds();
+    const prog = currentProgress();
+    renderStatus(ids, prog);
+    renderMain(ids, prog);
+    renderDock(ids, prog);
+    renderBallots();
+  }
+
+  function stepQuestion(delta) {
+    const ids = getDeckQuestionIds();
+    if (!ids.length) return;
+    const prog = currentProgress();
+    const nextIdx = prog.index + delta;
+    if (nextIdx >= 0 && nextIdx < ids.length) {
+      prog.index = nextIdx;
+      saveState();
+      render();
+      const main = document.getElementById('main-stage');
+      if (main) main.scrollTop = 0;
+    }
+  }
+
+  // Ballot Drawer open/close
+  function openBallotDrawer() {
+    const bd = document.getElementById('ballot-backdrop');
+    bd.classList.add('open');
+    bd.setAttribute('aria-hidden', 'false');
+    renderBallots();
+  }
+  function closeBallotDrawer() {
+    const bd = document.getElementById('ballot-backdrop');
+    bd.classList.remove('open');
+    bd.setAttribute('aria-hidden', 'true');
+  }
+
+  // QR Modal logic
+  function defaultShareUrl() {
+    const href = window.location.href.split('#')[0];
+    return href;
+  }
+
+  function renderQrPreview(url) {
+    const wrap = document.getElementById('qr-svg-wrap');
+    const hint = document.getElementById('qr-hint-text');
+    try {
+      wrap.innerHTML = generateQrSvg(url.trim(), '#0F2942', '#FFFFFF');
+      if (window.location.protocol === 'file:' || window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') {
+        hint.textContent = 'Đang xem thử nội bộ. Khi đẩy lên web công khai (GitHub Pages), hãy dán link HTTPS vào ô dưới để tạo mã QR cho mọi người quét.';
+      } else {
+        hint.textContent = 'Đưa camera điện thoại hoặc Zalo vào mã QR này để mở thẳng đề thi.';
+      }
+    } catch {
+      wrap.innerHTML = '<div style="font-size:12.5px;color:#B91C1C;text-align:center;padding:12px;">Đường dẫn quá dài để tạo mã QR. Hãy rút gọn URL (dưới 150 ký tự).</div>';
+    }
+  }
+
+  function openQrModal() {
+    const inp = document.getElementById('qr-url-input');
+    inp.value = defaultShareUrl();
+    renderQrPreview(inp.value);
+    const bd = document.getElementById('qr-backdrop');
+    bd.classList.add('open');
+    bd.setAttribute('aria-hidden', 'false');
+  }
+  function closeQrModal() {
+    const bd = document.getElementById('qr-backdrop');
+    bd.classList.remove('open');
+    bd.setAttribute('aria-hidden', 'true');
+  }
+
+  function downloadQrPng() {
+    const url = document.getElementById('qr-url-input').value.trim();
+    if (!url) return;
+    let matrix;
+    try { matrix = generateQrMatrix(url); } catch { return; }
+    const n = matrix.length;
+    const pad = 4;
+    const targetPx = 768;
+    const cell = Math.max(8, Math.floor(targetPx / (n + pad * 2)));
+    const size = (n + pad * 2) * cell;
+    const canvas = document.createElement('canvas');
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillRect(0, 0, size, size);
+    ctx.fillStyle = '#0F2942';
+    for (let r = 0; r < n; r++) {
+      for (let c = 0; c < n; c++) {
+        if (matrix[r][c]) ctx.fillRect((c + pad) * cell, (r + pad) * cell, cell, cell);
+      }
+    }
+    const link = document.createElement('a');
+    link.download = 'qr-trac-nghiem-le-tan.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  }
+
+  // Event wiring
+  document.querySelectorAll('.tab[data-deck]').forEach((tab) => {
+    tab.addEventListener('click', () => {
+      state.deck = tab.dataset.deck;
+      saveState();
+      syncTimer();
+      render();
+    });
+  });
+
+  document.getElementById('btn-mode-practice').addEventListener('click', () => {
+    if (state.mode === 'practice') return;
+    state.mode = 'practice';
+    saveState();
+    syncTimer();
+    render();
+  });
+
+  document.getElementById('btn-mode-exam').addEventListener('click', () => {
+    if (state.mode === 'exam') return;
+    state.mode = 'exam';
+    saveState();
+    syncTimer();
+    render();
+  });
+
+  document.getElementById('btn-prev').addEventListener('click', () => stepQuestion(-1));
+  document.getElementById('btn-next').addEventListener('click', () => {
+    const nextBtn = document.getElementById('btn-next');
+    if (nextBtn.dataset.action === 'submit') submitExam(false);
+    else stepQuestion(1);
+  });
+
+  document.getElementById('btn-open-ballot').addEventListener('click', openBallotDrawer);
+  document.getElementById('btn-close-ballot').addEventListener('click', closeBallotDrawer);
+  document.getElementById('ballot-backdrop').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) closeBallotDrawer();
+  });
+
+  const handleResetTrigger = () => {
+    closeBallotDrawer();
+    openConfirm(
+      'Làm lại từ đầu?',
+      'Toàn bộ đáp án đã chọn trong mục hiện tại sẽ được xóa để bạn làm lại.',
+      resetCurrentDeck
+    );
+  };
+  document.getElementById('btn-desktop-reset').addEventListener('click', handleResetTrigger);
+  document.getElementById('btn-drawer-reset').addEventListener('click', handleResetTrigger);
+
+  document.getElementById('btn-open-qr').addEventListener('click', openQrModal);
+  document.getElementById('btn-close-qr').addEventListener('click', closeQrModal);
+  document.getElementById('qr-backdrop').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) closeQrModal();
+  });
+  document.getElementById('qr-url-input').addEventListener('input', (e) => renderQrPreview(e.target.value));
+  document.getElementById('btn-download-qr').addEventListener('click', downloadQrPng);
+  document.getElementById('btn-copy-url').addEventListener('click', async () => {
+    const btn = document.getElementById('btn-copy-url');
+    const url = document.getElementById('qr-url-input').value.trim();
+    try {
+      await navigator.clipboard.writeText(url);
+      btn.textContent = 'Đã sao chép';
+      setTimeout(() => { btn.textContent = 'Sao chép link'; }, 1800);
+    } catch {
+      document.getElementById('qr-url-input').select();
+    }
+  });
+
+  document.getElementById('btn-confirm-cancel').addEventListener('click', closeConfirm);
+  document.getElementById('btn-close-confirm').addEventListener('click', closeConfirm);
+  document.getElementById('confirm-backdrop').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) closeConfirm();
+  });
+  document.getElementById('btn-confirm-ok').addEventListener('click', () => {
+    const fn = pendingConfirmAction;
+    closeConfirm();
+    if (fn) fn();
+  });
+
+  // Touch swipe navigation on main stage
+  let touchX = 0;
+  let touchY = 0;
+  const stageEl = document.getElementById('main-stage');
+  stageEl.addEventListener('touchstart', (e) => {
+    if (e.touches.length !== 1) return;
+    touchX = e.touches[0].clientX;
+    touchY = e.touches[0].clientY;
+  }, { passive: true });
+  stageEl.addEventListener('touchend', (e) => {
+    if (!touchX || e.changedTouches.length !== 1) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    const dy = e.changedTouches[0].clientY - touchY;
+    touchX = 0;
+    if (Math.abs(dx) > 56 && Math.abs(dx) > Math.abs(dy) * 1.7) {
+      stepQuestion(dx < 0 ? 1 : -1);
+    }
+  }, { passive: true });
+
+  // Keyboard shortcuts for desktop users
+  document.addEventListener('keydown', (e) => {
+    if (e.target && ['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
+    if (e.key === 'Escape') {
+      closeBallotDrawer();
+      closeQrModal();
+      closeConfirm();
+      return;
+    }
+    const anyModalOpen =
+      document.getElementById('qr-backdrop').classList.contains('open') ||
+      document.getElementById('confirm-backdrop').classList.contains('open') ||
+      document.getElementById('ballot-backdrop').classList.contains('open');
+    if (anyModalOpen) return;
+
+    if (e.key === 'ArrowLeft') { e.preventDefault(); stepQuestion(-1); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); stepQuestion(1); }
+    else if (['1', '2', '3', '4'].includes(e.key)) selectOption(LETTERS[Number(e.key) - 1]);
+    else if (['a', 'b', 'c', 'd', 'A', 'B', 'C', 'D'].includes(e.key)) selectOption(e.key.toUpperCase());
+    else if (e.key === 'f' || e.key === 'F') {
+      const ids = getDeckQuestionIds();
+      const prog = currentProgress();
+      if (ids[prog.index]) {
+        prog.flags[ids[prog.index]] = !prog.flags[ids[prog.index]];
+        saveState();
+        render();
+      }
+    }
+  });
+
+  render();
+  syncTimer();
+})();
+</script>
+</body>
+</html>

@@ -3,23 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#0F2942">
-<meta name="description" content="Ôn tập trắc nghiệm Lễ tân Ngoại giao: 140 câu Đề 1 và Đề 2 kèm đáp án chuẩn, chế độ Luyện tập, Thi thử bấm giờ và chia sẻ nhanh qua mã QR.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230F2942'/%3E%3Cpath d='M9 10h14v2H9zm0 5h14v2H9zm0 5h9v2H9z' fill='%23F7F6F2'/%3E%3Ccircle cx='22' cy='21' r='3' fill='%230F766E'/%3E%3C/svg%3E">
-<title>Lễ tân Ngoại giao · Ôn tập Trắc nghiệm (140 câu)</title>
+<meta name="theme-color" content="#BD1E59">
+<meta name="description" content="Ôn tập trắc nghiệm Lễ tân Ngoại giao: 140 câu Đề 1 và Đề 2 kèm đáp án chuẩn, phong cách Hello Kitty dễ thương, tối ưu điện thoại và quét mã QR.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23FFE4EC'/%3E%3Cpath d='M7 13L6 5l6 4q4-1 8 0l6-4-1 8c3 3 3 10-2 13-4 2-10 2-14 0-5-3-5-10-2-13z' fill='%23FFF' stroke='%234A1026' stroke-width='1.5'/%3E%3Ccircle cx='12' cy='18' r='1.3' fill='%234A1026'/%3E%3Ccircle cx='20' cy='18' r='1.3' fill='%234A1026'/%3E%3Cellipse cx='16' cy='20.5' rx='1.8' ry='1.2' fill='%23FBBF24'/%3E%3Ccircle cx='22' cy='9' r='2.5' fill='%23E11D48'/%3E%3C/svg%3E">
+<title>Lễ tân Ngoại giao · Trắc nghiệm Hello Kitty (140 câu)</title>
 <style>
   :root {
-    --bg-desk: #E2E8F0;
-    --bg-page: #F8F9FB;
-    --bg-strip: #EEF1F6;
-    --bg-card: #FFFFFF;
-    --navy: #0F2942;
-    --navy-soft: #1B3B5A;
-    --ink: #0F2942;
-    --ink-body: #1E293B;
-    --ink-muted: #475569;
-    --border: #D5DCE4;
-    --border-strong: #94A3B8;
+    --bg-desk: #FFDCE8;
+    --bg-page: #FFF9FB;
+    --bg-strip: #FFEFF4;
+    --bg-card: rgba(255, 255, 255, 0.92);
+    --bg-card-solid: #FFFFFF;
+    --navy: #BD1E59;
+    --navy-soft: #9F1548;
+    --ribbon: #E11D48;
+    --ink: #4A1026;
+    --ink-body: #5C1B33;
+    --ink-muted: #88465F;
+    --border: #F4C3D4;
+    --border-strong: #E494B0;
     --teal: #0F766E;
     --teal-bg: #ECFDF5;
     --teal-text: #064E3B;
@@ -29,10 +31,10 @@
     --amber: #B45309;
     --amber-bg: #FEF3C7;
     --amber-text: #78350F;
-    --selected-bg: #EFF4F9;
-    --radius-sm: 6px;
-    --radius-md: 10px;
-    --radius-lg: 12px;
+    --selected-bg: #FDF2F8;
+    --radius-sm: 10px;
+    --radius-md: 14px;
+    --radius-lg: 18px;
     --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   }
 
@@ -47,7 +49,7 @@
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
   }
-  ::selection { background: var(--navy); color: var(--bg-page); }
+  ::selection { background: var(--navy); color: #FFFFFF; }
   button, input { font-family: inherit; }
 
   .tnum { font-variant-numeric: tabular-nums; }
@@ -56,8 +58,96 @@
     overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
   }
 
+  /* Flying Kitty Sky Backdrop (Desktop & Mobile Stage) */
+  .sky-backdrop {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+    display: none;
+  }
+  @media (min-width: 768px) {
+    .sky-backdrop { display: block; }
+  }
+  .stage-sky {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .fly-obj {
+    position: absolute;
+    will-change: transform;
+    pointer-events: none;
+  }
+  .fly-cat-a {
+    animation: kitty-glide-lr var(--dur, 18s) linear var(--del, 0s) infinite;
+    opacity: var(--op, 0.42);
+  }
+  .fly-cat-b {
+    animation: kitty-glide-rl var(--dur, 21s) linear var(--del, 0s) infinite;
+    opacity: var(--op, 0.38);
+  }
+  .fly-float {
+    animation: kitty-bob var(--dur, 6s) ease-in-out var(--del, 0s) infinite;
+    opacity: var(--op, 0.45);
+  }
+  .kitty-wing-l {
+    transform-origin: 18px 25px;
+    animation: wing-l 0.9s ease-in-out infinite alternate;
+  }
+  .kitty-wing-r {
+    transform-origin: 46px 25px;
+    animation: wing-r 0.9s ease-in-out infinite alternate;
+  }
+  @keyframes wing-l {
+    from { transform: rotate(-14deg); }
+    to { transform: rotate(12deg); }
+  }
+  @keyframes wing-r {
+    from { transform: rotate(14deg); }
+    to { transform: rotate(-12deg); }
+  }
+  @keyframes kitty-glide-lr {
+    0% { transform: translate3d(-120px, 18px, 0) rotate(-6deg); }
+    25% { transform: translate3d(28vw, -14px, 0) rotate(4deg); }
+    50% { transform: translate3d(58vw, 16px, 0) rotate(-4deg); }
+    75% { transform: translate3d(88vw, -12px, 0) rotate(5deg); }
+    100% { transform: translate3d(calc(100vw + 140px), 10px, 0) rotate(-5deg); }
+  }
+  @keyframes kitty-glide-rl {
+    0% { transform: translate3d(calc(100vw + 120px), -10px, 0) rotate(6deg); }
+    25% { transform: translate3d(72vw, 18px, 0) rotate(-4deg); }
+    50% { transform: translate3d(42vw, -14px, 0) rotate(4deg); }
+    75% { transform: translate3d(14vw, 14px, 0) rotate(-5deg); }
+    100% { transform: translate3d(-140px, -8px, 0) rotate(5deg); }
+  }
+  @keyframes kitty-bob {
+    0%, 100% { transform: translate3d(0, 0, 0) rotate(-4deg); }
+    50% { transform: translate3d(0, -14px, 0) rotate(5deg); }
+  }
+  @keyframes mascot-hop {
+    0%, 100% { transform: translateY(0) scale(1); }
+    35% { transform: translateY(-6px) rotate(-6deg) scale(1.08); }
+    70% { transform: translateY(-2px) rotate(5deg) scale(1.04); }
+  }
+  .kitty-mascot.hop {
+    animation: mascot-hop 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .fly-cat-a, .fly-cat-b, .fly-float, .kitty-wing-l, .kitty-wing-r, .kitty-mascot.hop {
+      animation: none !important;
+    }
+    .fly-cat-a { transform: translate3d(16px, 0, 0); }
+    .fly-cat-b { transform: translate3d(calc(100% - 76px), 0, 0); }
+  }
+
   /* Outer App Frame */
   .app-frame {
+    position: relative;
+    z-index: 1;
     height: 100dvh;
     display: flex;
     flex-direction: column;
@@ -72,20 +162,22 @@
       max-width: 1080px;
       height: calc(100dvh - 28px);
       margin: 0 auto;
-      border: 1px solid #C6CFD9;
-      border-radius: 14px;
+      border: 1.5px solid #EEABC1;
+      border-radius: 22px;
     }
   }
 
   /* Header Bar */
   .topbar {
     background: var(--navy);
-    color: var(--bg-page);
-    padding: 12px 16px 10px;
+    color: #FFFFFF;
+    padding: 11px 16px 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     flex-shrink: 0;
+    position: relative;
+    z-index: 2;
   }
   .toprow {
     display: flex;
@@ -95,10 +187,24 @@
   }
   .brand-wrap {
     display: flex;
-    align-items: baseline;
-    gap: 8px;
+    align-items: center;
+    gap: 9px;
     min-width: 0;
   }
+  .kitty-mascot {
+    appearance: none;
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    border-radius: 50%;
+  }
+  .kitty-mascot:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }
   h1.brand {
     margin: 0;
     font-size: 16px;
@@ -112,7 +218,7 @@
   .brand-credit {
     font-size: 11px;
     font-weight: 500;
-    color: #CBD5E1;
+    color: #FFE4EC;
     white-space: nowrap;
     display: none;
   }
@@ -124,16 +230,16 @@
     gap: 6px;
     background: var(--navy-soft);
     color: #FFFFFF;
-    border: 1px solid rgba(255, 255, 255, 0.24);
-    border-radius: var(--radius-sm);
-    padding: 6px 11px;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    border-radius: 999px;
+    padding: 6px 12px;
     font-size: 12.5px;
     font-weight: 600;
     cursor: pointer;
     flex-shrink: 0;
     min-height: 34px;
   }
-  .qr-trigger:hover { background: #244B70; }
+  .qr-trigger:hover { background: #83113B; }
   .qr-trigger:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }
 
   .tabs {
@@ -143,10 +249,10 @@
   }
   .tab {
     appearance: none;
-    background: rgba(255, 255, 255, 0.08);
-    color: #E2E8F0;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.14);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 11px;
     padding: 7px 4px;
     font-size: 12px;
     font-weight: 600;
@@ -159,16 +265,16 @@
     gap: 4px;
     white-space: nowrap;
   }
-  .tab:hover { background: rgba(255, 255, 255, 0.15); }
+  .tab:hover { background: rgba(255, 255, 255, 0.22); }
   .tab.active {
     background: var(--bg-page);
-    color: var(--navy);
+    color: var(--navy-soft);
     border-color: var(--bg-page);
   }
   .tab:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 1px; }
   .tab-count {
     font-variant-numeric: tabular-nums;
-    opacity: 0.9;
+    opacity: 0.92;
   }
 
   /* Mode & Status Strip */
@@ -182,12 +288,14 @@
     gap: 10px;
     flex-wrap: wrap;
     flex-shrink: 0;
+    position: relative;
+    z-index: 2;
   }
   .mode-switch {
     display: inline-flex;
-    background: #DCE2EA;
-    border: 1px solid #C5CEDB;
-    border-radius: var(--radius-sm);
+    background: #FAD4E1;
+    border: 1px solid #F0A9C2;
+    border-radius: 999px;
     padding: 2px;
     gap: 2px;
   }
@@ -195,9 +303,9 @@
     appearance: none;
     border: none;
     background: transparent;
-    color: #334155;
-    padding: 5px 10px;
-    border-radius: 4px;
+    color: var(--ink);
+    padding: 5px 11px;
+    border-radius: 999px;
     font-size: 12.5px;
     font-weight: 600;
     cursor: pointer;
@@ -219,15 +327,15 @@
     gap: 8px;
     font-size: 12.5px;
     font-weight: 600;
-    color: #334155;
+    color: var(--ink);
   }
   .stat-pill {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    padding: 4px 8px;
-    border-radius: var(--radius-sm);
-    background: var(--bg-card);
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--bg-card-solid);
     border: 1px solid var(--border);
     color: var(--ink);
   }
@@ -237,10 +345,10 @@
   .mini-action {
     appearance: none;
     border: 1px solid var(--border-strong);
-    background: var(--bg-card);
+    background: var(--bg-card-solid);
     color: var(--ink);
-    border-radius: var(--radius-sm);
-    padding: 4px 10px;
+    border-radius: 999px;
+    padding: 4px 11px;
     font-size: 12.5px;
     font-weight: 600;
     cursor: pointer;
@@ -258,14 +366,16 @@
   .mini-action:focus-visible { outline: 2px solid var(--navy); outline-offset: 1px; }
 
   .progbar {
-    height: 3px;
-    background: var(--border);
+    height: 4px;
+    background: #FCDFE9;
     flex-shrink: 0;
+    position: relative;
+    z-index: 2;
   }
   .progfill {
     height: 100%;
     width: 0%;
-    background: var(--teal);
+    background: var(--ribbon);
     transition: width 180ms ease;
   }
 
@@ -277,13 +387,17 @@
     overflow: hidden;
   }
   .stage-col {
+    position: relative;
     flex: 1;
     display: flex;
     flex-direction: column;
     min-width: 0;
     min-height: 0;
+    background: linear-gradient(180deg, #FFF9FB 0%, #FFF1F6 100%);
   }
   .main {
+    position: relative;
+    z-index: 1;
     flex: 1;
     overflow-y: auto;
     padding: 16px;
@@ -291,13 +405,13 @@
     flex-direction: column;
     gap: 12px;
     scrollbar-width: thin;
-    scrollbar-color: #CBD5E1 transparent;
+    scrollbar-color: #E494B0 transparent;
   }
   @media (min-width: 768px) {
     .main { padding: 20px 24px; gap: 14px; }
   }
   .main::-webkit-scrollbar { width: 6px; }
-  .main::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+  .main::-webkit-scrollbar-thumb { background: #E494B0; border-radius: 3px; }
 
   /* Question Meta Row */
   .qmeta {
@@ -322,21 +436,21 @@
   .tag-chip {
     display: inline-flex;
     align-items: center;
-    padding: 2px 7px;
-    border-radius: 4px;
+    padding: 2px 8px;
+    border-radius: 999px;
     background: var(--bg-strip);
     border: 1px solid var(--border);
-    color: #334155;
+    color: var(--ink-body);
     font-size: 11.5px;
     font-weight: 600;
   }
   .flag-btn {
     appearance: none;
-    background: var(--bg-card);
+    background: var(--bg-card-solid);
     border: 1px solid var(--border);
     color: var(--ink-muted);
-    border-radius: var(--radius-sm);
-    padding: 5px 10px;
+    border-radius: 999px;
+    padding: 5px 11px;
     font-size: 12px;
     font-weight: 600;
     cursor: pointer;
@@ -355,7 +469,8 @@
   /* Question Card */
   .qcard {
     background: var(--bg-card);
-    border: 1px solid var(--border);
+    backdrop-filter: blur(4px);
+    border: 1.5px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 16px;
   }
@@ -383,7 +498,8 @@
     align-items: flex-start;
     gap: 12px;
     background: var(--bg-card);
-    border: 1px solid var(--border);
+    backdrop-filter: blur(4px);
+    border: 1.5px solid var(--border);
     border-radius: var(--radius-md);
     padding: 12px 14px;
     min-height: 52px;
@@ -391,11 +507,12 @@
     line-height: 1.44;
     color: var(--ink-body);
     cursor: pointer;
-    transition: border-color 120ms ease, background-color 120ms ease;
+    transition: border-color 120ms ease, background-color 120ms ease, transform 120ms ease;
   }
   .opt:hover:not(:disabled) {
     border-color: var(--border-strong);
-    background: #FAFAF8;
+    background: #FFFDFD;
+    transform: translateY(-1px);
   }
   .opt:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
   .opt:disabled { cursor: default; }
@@ -403,10 +520,10 @@
   .opt-badge {
     min-width: 28px;
     height: 28px;
-    border-radius: var(--radius-sm);
-    background: #F1F5F9;
-    border: 1px solid #CBD5E1;
-    color: var(--navy);
+    border-radius: 999px;
+    background: #FFF0F5;
+    border: 1.5px solid #F0A9C2;
+    color: var(--navy-soft);
     font-weight: 700;
     font-size: 13px;
     display: inline-flex;
@@ -582,7 +699,9 @@
 
   /* Bottom Thumb Dock */
   .dock {
-    background: var(--bg-card);
+    position: relative;
+    z-index: 2;
+    background: var(--bg-card-solid);
     border-top: 1px solid var(--border);
     padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
     display: grid;
@@ -592,10 +711,10 @@
   }
   .dbtn {
     appearance: none;
-    border: 1px solid #CBD5E1;
-    background: #F8FAFC;
-    color: var(--navy);
-    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--border-strong);
+    background: #FFF5F8;
+    color: var(--navy-soft);
+    border-radius: var(--radius-md);
     padding: 10px 8px;
     min-height: 46px;
     font-size: 13px;
@@ -620,6 +739,8 @@
 
   /* Desktop Right Ballot Rail */
   .desktop-rail {
+    position: relative;
+    z-index: 2;
     display: none;
     width: 320px;
     flex-shrink: 0;
@@ -660,11 +781,11 @@
   }
   .filter-chip {
     appearance: none;
-    background: var(--bg-card);
+    background: var(--bg-card-solid);
     border: 1px solid var(--border);
     color: var(--ink-muted);
-    border-radius: 4px;
-    padding: 4px 8px;
+    border-radius: 999px;
+    padding: 4px 9px;
     font-size: 11.5px;
     font-weight: 600;
     cursor: pointer;
@@ -695,9 +816,9 @@
     appearance: none;
     position: relative;
     height: 38px;
-    border-radius: var(--radius-sm);
+    border-radius: 10px;
     border: 1px solid var(--border);
-    background: var(--bg-card);
+    background: var(--bg-card-solid);
     color: var(--ink);
     font-size: 12.5px;
     font-weight: 600;
@@ -747,7 +868,7 @@
   .backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(15, 41, 66, 0.56);
+    background: rgba(74, 16, 38, 0.45);
     display: none;
     align-items: flex-end;
     justify-content: center;
@@ -870,10 +991,97 @@
 </style>
 </head>
 <body>
+<div class="sky-backdrop" aria-hidden="true"><div class="fly-obj fly-cat-a" style="top:7%;left:0;--dur:22s;--del:-4s;--op:0.78;"><svg width="64" height="51" viewBox="0 0 68 54" fill="none" aria-hidden="true"><g>
+    <path class="kitty-wing-l" d="M21 29C11 19 3 23 7 30c-3 4 3 9 14 5Z" fill="#FFFFFF" stroke="#E494B0" stroke-width="1.6" stroke-linejoin="round"/>
+    <path class="kitty-wing-r" d="M47 29C57 19 65 23 61 30c3 4-3 9-14 5Z" fill="#FFFFFF" stroke="#E494B0" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M25 35c-2 6 1 11 9 11s11-5 9-11Z" fill="#FB7185" stroke="#4A1026" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M21 17l-1.5-8.5 7 4.2a16 16 0 0 1 15 0l7-4.2L47 17c3.4 3.1 3.4 10-1.5 13.5-5 3.2-18 3.2-23 0C17.6 27 17.6 20.1 21 17Z" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.6" stroke-linejoin="round"/>
+    <circle cx="28" cy="22.5" r="1.4" fill="#4A1026"/>
+    <circle cx="40" cy="22.5" r="1.4" fill="#4A1026"/>
+    <ellipse cx="24.5" cy="25" rx="2" ry="1.2" fill="#FDA4AF"/>
+    <ellipse cx="43.5" cy="25" rx="2" ry="1.2" fill="#FDA4AF"/>
+    <ellipse cx="34" cy="24.8" rx="1.9" ry="1.3" fill="#FBBF24" stroke="#4A1026" stroke-width="1"/>
+    <path d="M16 21.5l5 1M15.5 24.5l5 0M16 27.5l5-1M52 21.5l-5 1M52.5 24.5l-5 0M52 27.5l-5-1" stroke="#4A1026" stroke-width="1.2" stroke-linecap="round"/>
+    <g transform="translate(36 8) rotate(14)">
+      <path d="M5 4.5L0.8 1.5a2 2 0 0 0 0 6L5 4.5Z" fill="#F43F5E" stroke="#4A1026" stroke-width="1.1"/>
+      <path d="M5 4.5l4.2-3a2 2 0 0 1 0 6L5 4.5Z" fill="#F43F5E" stroke="#4A1026" stroke-width="1.1"/>
+      <circle cx="5" cy="4.5" r="1.8" fill="#FB7185" stroke="#4A1026" stroke-width="1"/>
+    </g>
+    <circle cx="29" cy="45.5" r="2.6" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.3"/>
+    <circle cx="39" cy="45.5" r="2.6" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.3"/>
+  </g></svg></div><div class="fly-obj fly-cat-b" style="top:26%;left:0;--dur:25s;--del:-11s;--op:0.72;"><svg width="54" height="43" viewBox="0 0 68 54" fill="none" aria-hidden="true"><g transform="scale(-1 1) translate(-68 0)">
+    <path class="kitty-wing-l" d="M21 29C11 19 3 23 7 30c-3 4 3 9 14 5Z" fill="#FFFFFF" stroke="#E494B0" stroke-width="1.6" stroke-linejoin="round"/>
+    <path class="kitty-wing-r" d="M47 29C57 19 65 23 61 30c3 4-3 9-14 5Z" fill="#FFFFFF" stroke="#E494B0" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M25 35c-2 6 1 11 9 11s11-5 9-11Z" fill="#FB7185" stroke="#4A1026" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M21 17l-1.5-8.5 7 4.2a16 16 0 0 1 15 0l7-4.2L47 17c3.4 3.1 3.4 10-1.5 13.5-5 3.2-18 3.2-23 0C17.6 27 17.6 20.1 21 17Z" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.6" stroke-linejoin="round"/>
+    <circle cx="28" cy="22.5" r="1.4" fill="#4A1026"/>
+    <circle cx="40" cy="22.5" r="1.4" fill="#4A1026"/>
+    <ellipse cx="24.5" cy="25" rx="2" ry="1.2" fill="#FDA4AF"/>
+    <ellipse cx="43.5" cy="25" rx="2" ry="1.2" fill="#FDA4AF"/>
+    <ellipse cx="34" cy="24.8" rx="1.9" ry="1.3" fill="#FBBF24" stroke="#4A1026" stroke-width="1"/>
+    <path d="M16 21.5l5 1M15.5 24.5l5 0M16 27.5l5-1M52 21.5l-5 1M52.5 24.5l-5 0M52 27.5l-5-1" stroke="#4A1026" stroke-width="1.2" stroke-linecap="round"/>
+    <g transform="translate(36 8) rotate(14)">
+      <path d="M5 4.5L0.8 1.5a2 2 0 0 0 0 6L5 4.5Z" fill="#F43F5E" stroke="#4A1026" stroke-width="1.1"/>
+      <path d="M5 4.5l4.2-3a2 2 0 0 1 0 6L5 4.5Z" fill="#F43F5E" stroke="#4A1026" stroke-width="1.1"/>
+      <circle cx="5" cy="4.5" r="1.8" fill="#FB7185" stroke="#4A1026" stroke-width="1"/>
+    </g>
+    <circle cx="29" cy="45.5" r="2.6" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.3"/>
+    <circle cx="39" cy="45.5" r="2.6" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.3"/>
+  </g></svg></div><div class="fly-obj fly-cat-a" style="top:64%;left:0;--dur:20s;--del:-14s;--op:0.75;"><svg width="58" height="46" viewBox="0 0 68 54" fill="none" aria-hidden="true"><g>
+    <path class="kitty-wing-l" d="M21 29C11 19 3 23 7 30c-3 4 3 9 14 5Z" fill="#FFFFFF" stroke="#E494B0" stroke-width="1.6" stroke-linejoin="round"/>
+    <path class="kitty-wing-r" d="M47 29C57 19 65 23 61 30c3 4-3 9-14 5Z" fill="#FFFFFF" stroke="#E494B0" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M25 35c-2 6 1 11 9 11s11-5 9-11Z" fill="#FB7185" stroke="#4A1026" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M21 17l-1.5-8.5 7 4.2a16 16 0 0 1 15 0l7-4.2L47 17c3.4 3.1 3.4 10-1.5 13.5-5 3.2-18 3.2-23 0C17.6 27 17.6 20.1 21 17Z" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.6" stroke-linejoin="round"/>
+    <circle cx="28" cy="22.5" r="1.4" fill="#4A1026"/>
+    <circle cx="40" cy="22.5" r="1.4" fill="#4A1026"/>
+    <ellipse cx="24.5" cy="25" rx="2" ry="1.2" fill="#FDA4AF"/>
+    <ellipse cx="43.5" cy="25" rx="2" ry="1.2" fill="#FDA4AF"/>
+    <ellipse cx="34" cy="24.8" rx="1.9" ry="1.3" fill="#FBBF24" stroke="#4A1026" stroke-width="1"/>
+    <path d="M16 21.5l5 1M15.5 24.5l5 0M16 27.5l5-1M52 21.5l-5 1M52.5 24.5l-5 0M52 27.5l-5-1" stroke="#4A1026" stroke-width="1.2" stroke-linecap="round"/>
+    <g transform="translate(36 8) rotate(14)">
+      <path d="M5 4.5L0.8 1.5a2 2 0 0 0 0 6L5 4.5Z" fill="#F43F5E" stroke="#4A1026" stroke-width="1.1"/>
+      <path d="M5 4.5l4.2-3a2 2 0 0 1 0 6L5 4.5Z" fill="#F43F5E" stroke="#4A1026" stroke-width="1.1"/>
+      <circle cx="5" cy="4.5" r="1.8" fill="#FB7185" stroke="#4A1026" stroke-width="1"/>
+    </g>
+    <circle cx="29" cy="45.5" r="2.6" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.3"/>
+    <circle cx="39" cy="45.5" r="2.6" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.3"/>
+  </g></svg></div><div class="fly-obj fly-cat-b" style="top:84%;left:0;--dur:24s;--del:-7s;--op:0.7;"><svg width="50" height="40" viewBox="0 0 68 54" fill="none" aria-hidden="true"><g transform="scale(-1 1) translate(-68 0)">
+    <path class="kitty-wing-l" d="M21 29C11 19 3 23 7 30c-3 4 3 9 14 5Z" fill="#FFFFFF" stroke="#E494B0" stroke-width="1.6" stroke-linejoin="round"/>
+    <path class="kitty-wing-r" d="M47 29C57 19 65 23 61 30c3 4-3 9-14 5Z" fill="#FFFFFF" stroke="#E494B0" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M25 35c-2 6 1 11 9 11s11-5 9-11Z" fill="#FB7185" stroke="#4A1026" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M21 17l-1.5-8.5 7 4.2a16 16 0 0 1 15 0l7-4.2L47 17c3.4 3.1 3.4 10-1.5 13.5-5 3.2-18 3.2-23 0C17.6 27 17.6 20.1 21 17Z" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.6" stroke-linejoin="round"/>
+    <circle cx="28" cy="22.5" r="1.4" fill="#4A1026"/>
+    <circle cx="40" cy="22.5" r="1.4" fill="#4A1026"/>
+    <ellipse cx="24.5" cy="25" rx="2" ry="1.2" fill="#FDA4AF"/>
+    <ellipse cx="43.5" cy="25" rx="2" ry="1.2" fill="#FDA4AF"/>
+    <ellipse cx="34" cy="24.8" rx="1.9" ry="1.3" fill="#FBBF24" stroke="#4A1026" stroke-width="1"/>
+    <path d="M16 21.5l5 1M15.5 24.5l5 0M16 27.5l5-1M52 21.5l-5 1M52.5 24.5l-5 0M52 27.5l-5-1" stroke="#4A1026" stroke-width="1.2" stroke-linecap="round"/>
+    <g transform="translate(36 8) rotate(14)">
+      <path d="M5 4.5L0.8 1.5a2 2 0 0 0 0 6L5 4.5Z" fill="#F43F5E" stroke="#4A1026" stroke-width="1.1"/>
+      <path d="M5 4.5l4.2-3a2 2 0 0 1 0 6L5 4.5Z" fill="#F43F5E" stroke="#4A1026" stroke-width="1.1"/>
+      <circle cx="5" cy="4.5" r="1.8" fill="#FB7185" stroke="#4A1026" stroke-width="1"/>
+    </g>
+    <circle cx="29" cy="45.5" r="2.6" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.3"/>
+    <circle cx="39" cy="45.5" r="2.6" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.3"/>
+  </g></svg></div><div class="fly-obj fly-float" style="top:14%;left:4%;--dur:5.4s;--del:-1s;--op:0.6;"><svg width="22" height="22" viewBox="0 0 24 24" fill="#FB7185" aria-hidden="true"><path d="M12 20.5S4 15.2 4 9.5A4.5 4.5 0 0 1 12 6.8 4.5 4.5 0 0 1 20 9.5c0 5.7-8 11-8 11Z"/></svg></div><div class="fly-obj fly-float" style="top:45%;right:4%;--dur:6.2s;--del:-2.5s;--op:0.6;"><svg width="20" height="20" viewBox="0 0 24 24" fill="#F472B6" aria-hidden="true"><path d="M12 20.5S4 15.2 4 9.5A4.5 4.5 0 0 1 12 6.8 4.5 4.5 0 0 1 20 9.5c0 5.7-8 11-8 11Z"/></svg></div><div class="fly-obj fly-float" style="top:75%;left:5%;--dur:5s;--del:-3s;--op:0.65;"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FBBF24" aria-hidden="true"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4Z"/></svg></div><div class="fly-obj fly-float" style="top:18%;right:5%;--dur:5.8s;--del:-0.8s;--op:0.65;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#FBBF24" aria-hidden="true"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4Z"/></svg></div></div>
 <div class="app-frame">
   <header class="topbar">
     <div class="toprow">
       <div class="brand-wrap">
+        <button type="button" class="kitty-mascot" id="btn-kitty-mascot" title="Hello Kitty cổ vũ ôn thi" aria-label="Hello Kitty cổ vũ ôn thi"><svg width="38" height="32" viewBox="0 0 48 40" fill="none" aria-hidden="true">
+    <path d="M10 15L8 4l9.5 5.5A22 22 0 0 1 30.5 9.5L40 4l-2 11c4.2 3.8 4.2 12.2-1.8 16.5-6 3.8-18.4 3.8-24.4 0C5.8 27.2 5.8 18.8 10 15Z" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.9" stroke-linejoin="round"/>
+    <ellipse cx="17.5" cy="22" rx="1.7" ry="2.2" fill="#4A1026"/>
+    <ellipse cx="30.5" cy="22" rx="1.7" ry="2.2" fill="#4A1026"/>
+    <ellipse cx="13.5" cy="25.2" rx="2.4" ry="1.4" fill="#FDA4AF"/>
+    <ellipse cx="34.5" cy="25.2" rx="2.4" ry="1.4" fill="#FDA4AF"/>
+    <ellipse cx="24" cy="25.2" rx="2.4" ry="1.6" fill="#FBBF24" stroke="#4A1026" stroke-width="1.1"/>
+    <path d="M4 21l7 1.2M3.5 25l7-.2M4.5 29l6.8-1.4M44 21l-7 1.2M44.5 25l-7-.2M43.5 29l-6.8-1.4" stroke="#4A1026" stroke-width="1.4" stroke-linecap="round"/>
+    <g transform="translate(27 4) rotate(14)">
+      <path d="M7 6L1 2.2A2.5 2.5 0 0 0 1 9.8L7 6Z" fill="#F43F5E" stroke="#4A1026" stroke-width="1.3" stroke-linejoin="round"/>
+      <path d="M7 6l6-3.8a2.5 2.5 0 0 1 0 7.6L7 6Z" fill="#F43F5E" stroke="#4A1026" stroke-width="1.3" stroke-linejoin="round"/>
+      <circle cx="7" cy="6" r="2.2" fill="#FB7185" stroke="#4A1026" stroke-width="1.2"/>
+    </g>
+  </svg></button>
         <h1 class="brand">Lễ tân Ngoại giao</h1>
         <span class="brand-credit">· DO HONG DAI, M.A</span>
       </div>
@@ -901,6 +1109,61 @@
 
   <div class="workspace">
     <div class="stage-col">
+      <div class="stage-sky" aria-hidden="true"><div class="fly-obj fly-cat-a" style="top:6%;left:0;--dur:17s;--del:-3s;--op:0.36;"><svg width="50" height="40" viewBox="0 0 68 54" fill="none" aria-hidden="true"><g>
+    <path class="kitty-wing-l" d="M21 29C11 19 3 23 7 30c-3 4 3 9 14 5Z" fill="#FFFFFF" stroke="#E494B0" stroke-width="1.6" stroke-linejoin="round"/>
+    <path class="kitty-wing-r" d="M47 29C57 19 65 23 61 30c3 4-3 9-14 5Z" fill="#FFFFFF" stroke="#E494B0" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M25 35c-2 6 1 11 9 11s11-5 9-11Z" fill="#FB7185" stroke="#4A1026" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M21 17l-1.5-8.5 7 4.2a16 16 0 0 1 15 0l7-4.2L47 17c3.4 3.1 3.4 10-1.5 13.5-5 3.2-18 3.2-23 0C17.6 27 17.6 20.1 21 17Z" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.6" stroke-linejoin="round"/>
+    <circle cx="28" cy="22.5" r="1.4" fill="#4A1026"/>
+    <circle cx="40" cy="22.5" r="1.4" fill="#4A1026"/>
+    <ellipse cx="24.5" cy="25" rx="2" ry="1.2" fill="#FDA4AF"/>
+    <ellipse cx="43.5" cy="25" rx="2" ry="1.2" fill="#FDA4AF"/>
+    <ellipse cx="34" cy="24.8" rx="1.9" ry="1.3" fill="#FBBF24" stroke="#4A1026" stroke-width="1"/>
+    <path d="M16 21.5l5 1M15.5 24.5l5 0M16 27.5l5-1M52 21.5l-5 1M52.5 24.5l-5 0M52 27.5l-5-1" stroke="#4A1026" stroke-width="1.2" stroke-linecap="round"/>
+    <g transform="translate(36 8) rotate(14)">
+      <path d="M5 4.5L0.8 1.5a2 2 0 0 0 0 6L5 4.5Z" fill="#F43F5E" stroke="#4A1026" stroke-width="1.1"/>
+      <path d="M5 4.5l4.2-3a2 2 0 0 1 0 6L5 4.5Z" fill="#F43F5E" stroke="#4A1026" stroke-width="1.1"/>
+      <circle cx="5" cy="4.5" r="1.8" fill="#FB7185" stroke="#4A1026" stroke-width="1"/>
+    </g>
+    <circle cx="29" cy="45.5" r="2.6" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.3"/>
+    <circle cx="39" cy="45.5" r="2.6" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.3"/>
+  </g></svg></div><div class="fly-obj fly-cat-b" style="top:34%;left:0;--dur:21s;--del:-12s;--op:0.32;"><svg width="44" height="35" viewBox="0 0 68 54" fill="none" aria-hidden="true"><g transform="scale(-1 1) translate(-68 0)">
+    <path class="kitty-wing-l" d="M21 29C11 19 3 23 7 30c-3 4 3 9 14 5Z" fill="#FFFFFF" stroke="#E494B0" stroke-width="1.6" stroke-linejoin="round"/>
+    <path class="kitty-wing-r" d="M47 29C57 19 65 23 61 30c3 4-3 9-14 5Z" fill="#FFFFFF" stroke="#E494B0" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M25 35c-2 6 1 11 9 11s11-5 9-11Z" fill="#FB7185" stroke="#4A1026" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M21 17l-1.5-8.5 7 4.2a16 16 0 0 1 15 0l7-4.2L47 17c3.4 3.1 3.4 10-1.5 13.5-5 3.2-18 3.2-23 0C17.6 27 17.6 20.1 21 17Z" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.6" stroke-linejoin="round"/>
+    <circle cx="28" cy="22.5" r="1.4" fill="#4A1026"/>
+    <circle cx="40" cy="22.5" r="1.4" fill="#4A1026"/>
+    <ellipse cx="24.5" cy="25" rx="2" ry="1.2" fill="#FDA4AF"/>
+    <ellipse cx="43.5" cy="25" rx="2" ry="1.2" fill="#FDA4AF"/>
+    <ellipse cx="34" cy="24.8" rx="1.9" ry="1.3" fill="#FBBF24" stroke="#4A1026" stroke-width="1"/>
+    <path d="M16 21.5l5 1M15.5 24.5l5 0M16 27.5l5-1M52 21.5l-5 1M52.5 24.5l-5 0M52 27.5l-5-1" stroke="#4A1026" stroke-width="1.2" stroke-linecap="round"/>
+    <g transform="translate(36 8) rotate(14)">
+      <path d="M5 4.5L0.8 1.5a2 2 0 0 0 0 6L5 4.5Z" fill="#F43F5E" stroke="#4A1026" stroke-width="1.1"/>
+      <path d="M5 4.5l4.2-3a2 2 0 0 1 0 6L5 4.5Z" fill="#F43F5E" stroke="#4A1026" stroke-width="1.1"/>
+      <circle cx="5" cy="4.5" r="1.8" fill="#FB7185" stroke="#4A1026" stroke-width="1"/>
+    </g>
+    <circle cx="29" cy="45.5" r="2.6" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.3"/>
+    <circle cx="39" cy="45.5" r="2.6" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.3"/>
+  </g></svg></div><div class="fly-obj fly-cat-a" style="top:68%;left:0;--dur:19s;--del:-8s;--op:0.34;"><svg width="46" height="37" viewBox="0 0 68 54" fill="none" aria-hidden="true"><g>
+    <path class="kitty-wing-l" d="M21 29C11 19 3 23 7 30c-3 4 3 9 14 5Z" fill="#FFFFFF" stroke="#E494B0" stroke-width="1.6" stroke-linejoin="round"/>
+    <path class="kitty-wing-r" d="M47 29C57 19 65 23 61 30c3 4-3 9-14 5Z" fill="#FFFFFF" stroke="#E494B0" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M25 35c-2 6 1 11 9 11s11-5 9-11Z" fill="#FB7185" stroke="#4A1026" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M21 17l-1.5-8.5 7 4.2a16 16 0 0 1 15 0l7-4.2L47 17c3.4 3.1 3.4 10-1.5 13.5-5 3.2-18 3.2-23 0C17.6 27 17.6 20.1 21 17Z" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.6" stroke-linejoin="round"/>
+    <circle cx="28" cy="22.5" r="1.4" fill="#4A1026"/>
+    <circle cx="40" cy="22.5" r="1.4" fill="#4A1026"/>
+    <ellipse cx="24.5" cy="25" rx="2" ry="1.2" fill="#FDA4AF"/>
+    <ellipse cx="43.5" cy="25" rx="2" ry="1.2" fill="#FDA4AF"/>
+    <ellipse cx="34" cy="24.8" rx="1.9" ry="1.3" fill="#FBBF24" stroke="#4A1026" stroke-width="1"/>
+    <path d="M16 21.5l5 1M15.5 24.5l5 0M16 27.5l5-1M52 21.5l-5 1M52.5 24.5l-5 0M52 27.5l-5-1" stroke="#4A1026" stroke-width="1.2" stroke-linecap="round"/>
+    <g transform="translate(36 8) rotate(14)">
+      <path d="M5 4.5L0.8 1.5a2 2 0 0 0 0 6L5 4.5Z" fill="#F43F5E" stroke="#4A1026" stroke-width="1.1"/>
+      <path d="M5 4.5l4.2-3a2 2 0 0 1 0 6L5 4.5Z" fill="#F43F5E" stroke="#4A1026" stroke-width="1.1"/>
+      <circle cx="5" cy="4.5" r="1.8" fill="#FB7185" stroke="#4A1026" stroke-width="1"/>
+    </g>
+    <circle cx="29" cy="45.5" r="2.6" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.3"/>
+    <circle cx="39" cy="45.5" r="2.6" fill="#FFFFFF" stroke="#4A1026" stroke-width="1.3"/>
+  </g></svg></div><div class="fly-obj fly-float" style="top:20%;right:14px;--dur:5.5s;--del:-1.5s;--op:0.34;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#FB7185" aria-hidden="true"><path d="M12 20.5S4 15.2 4 9.5A4.5 4.5 0 0 1 12 6.8 4.5 4.5 0 0 1 20 9.5c0 5.7-8 11-8 11Z"/></svg></div><div class="fly-obj fly-float" style="bottom:16%;left:16px;--dur:6s;--del:-2.8s;--op:0.36;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#FBBF24" aria-hidden="true"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4Z"/></svg></div></div>
       <main class="main" id="main-stage"></main>
 
       <footer class="dock">
@@ -1539,6 +1802,14 @@ function generateQrSvg(text, darkColor = '#0F2942', lightColor = '#FFFFFF') {
     }
   }
 
+  function triggerKittyHop() {
+    const k = document.getElementById('btn-kitty-mascot');
+    if (!k) return;
+    k.classList.remove('hop');
+    void k.offsetWidth;
+    k.classList.add('hop');
+  }
+
   function selectOption(letter) {
     const ids = getDeckQuestionIds();
     if (!ids.length) return;
@@ -1551,7 +1822,8 @@ function generateQrSvg(text, darkColor = '#0F2942', lightColor = '#FFFFFF') {
     prog.answers[qid] = letter;
 
     if (state.mode === 'practice') {
-      if (letter !== q.answer) addWrongId(qid);
+      if (letter === q.answer) triggerKittyHop();
+      else addWrongId(qid);
     }
     saveState();
     render();
@@ -2066,7 +2338,7 @@ function generateQrSvg(text, darkColor = '#0F2942', lightColor = '#FFFFFF') {
     const wrap = document.getElementById('qr-svg-wrap');
     const hint = document.getElementById('qr-hint-text');
     try {
-      wrap.innerHTML = generateQrSvg(url.trim(), '#0F2942', '#FFFFFF');
+      wrap.innerHTML = generateQrSvg(url.trim(), '#8F1242', '#FFFFFF');
       if (window.location.protocol === 'file:' || window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') {
         hint.textContent = 'Đang xem thử nội bộ. Khi đẩy lên web công khai (GitHub Pages), hãy dán link HTTPS vào ô dưới để tạo mã QR cho mọi người quét.';
       } else {
@@ -2107,7 +2379,7 @@ function generateQrSvg(text, darkColor = '#0F2942', lightColor = '#FFFFFF') {
     const ctx = canvas.getContext('2d');
     ctx.fillStyle = '#FFFFFF';
     ctx.fillRect(0, 0, size, size);
-    ctx.fillStyle = '#0F2942';
+    ctx.fillStyle = '#8F1242';
     for (let r = 0; r < n; r++) {
       for (let c = 0; c < n; c++) {
         if (matrix[r][c]) ctx.fillRect((c + pad) * cell, (r + pad) * cell, cell, cell);
@@ -2120,6 +2392,7 @@ function generateQrSvg(text, darkColor = '#0F2942', lightColor = '#FFFFFF') {
   }
 
   // Event wiring
+  document.getElementById('btn-kitty-mascot').addEventListener('click', triggerKittyHop);
   document.querySelectorAll('.tab[data-deck]').forEach((tab) => {
     tab.addEventListener('click', () => {
       state.deck = tab.dataset.deck;

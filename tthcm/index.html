@@ -399,6 +399,73 @@
     position: relative;
     z-index: 2;
   }
+  .shuffle-bar {
+    background: #FFF4F7;
+    border-bottom: 1px solid var(--border);
+    padding: 6px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+  }
+  .shuffle-bar::-webkit-scrollbar { display: none; }
+  .shuffle-toggles {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .shuf-pill {
+    appearance: none;
+    border: 1px solid var(--border-strong);
+    background: #FFFFFF;
+    color: var(--ink-muted);
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 11.5px;
+    font-weight: 600;
+    cursor: pointer;
+    min-height: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+  }
+  .shuf-pill.on {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: #FFFFFF;
+  }
+  .shuf-pill.on-teal {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #FFFFFF;
+  }
+  .shuf-pill:focus-visible { outline: 2px solid var(--navy); outline-offset: 1px; }
+  .shuf-now {
+    appearance: none;
+    border: 1px solid var(--navy);
+    background: #FFFFFF;
+    color: var(--navy-soft);
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 11.5px;
+    font-weight: 700;
+    cursor: pointer;
+    min-height: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .shuf-now:hover { background: var(--selected-bg); }
+  .shuf-now:focus-visible { outline: 2px solid var(--navy); outline-offset: 1px; }
   .progfill {
     height: 100%;
     width: 0%;
@@ -1012,7 +1079,7 @@
     <nav class="tabs" aria-label="Chọn bộ đề">
       <button type="button" class="tab active" data-deck="chapters">Theo chương</button>
       <button type="button" class="tab" data-deck="mock50">Đề 50 câu</button>
-      <button type="button" class="tab" data-deck="mixed280">Trộn <span class="tab-count">(280)</span></button>
+      <button type="button" class="tab" data-deck="mixed280">Tráo lộn xộn</button>
       <button type="button" class="tab" data-deck="wrong">Câu sai <span class="tab-count" id="wrong-count">(0)</span></button>
     </nav>
   </header>
@@ -1025,6 +1092,22 @@
       <button type="button" class="mode-btn" data-mode="exam" id="btn-mode-exam">Thi thử</button>
     </div>
     <div class="status-right tnum" id="status-right"></div>
+  </div>
+  <div class="shuffle-bar" role="group" aria-label="Tùy chọn tráo câu hỏi và đáp án">
+    <div class="shuffle-toggles">
+      <button type="button" class="shuf-pill on" id="btn-toggle-shuf-q" aria-pressed="true">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+        <span id="lbl-shuf-q">Tráo câu: Bật</span>
+      </button>
+      <button type="button" class="shuf-pill on-teal" id="btn-toggle-shuf-opt" aria-pressed="true">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 3 4 4-4 4M20 7H4M8 21l-4-4 4-4M4 17h16"/></svg>
+        <span id="lbl-shuf-opt">Tráo A-B-C-D: Bật</span>
+      </button>
+    </div>
+    <button type="button" class="shuf-now" id="btn-shuffle-now">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      <span>Tráo lại</span>
+    </button>
   </div>
   <div class="progbar" aria-hidden="true"><div class="progfill" id="prog-fill"></div></div>
 
@@ -1200,7 +1283,7 @@
   }));
   const Q_BY_ID = new Map(QUESTIONS.map((q) => [q.id, q]));
   const LETTERS = ['A', 'B', 'C', 'D'];
-  const STORAGE_KEY = 'tthcm_v1_state';
+  const STORAGE_KEY = 'tthcm_v2_state';
 
   // Minimal zero-dependency QR Code encoder (ISO/IEC 18004, Byte mode, ECC M, Versions 1..8)
 const GF_EXP = new Uint8Array(512);
@@ -1579,12 +1662,30 @@ function generateQrSvg(text, darkColor = '#0F2942', lightColor = '#FFFFFF') {
     return a;
   }
 
-  function makeOptionPerms() {
+  function shufflePermDifferent(prev) {
+    let next = shuffleArr([0, 1, 2, 3]);
+    if (Array.isArray(prev) && prev.length === 4) {
+      for (let t = 0; t < 5 && next.every((v, i) => v === prev[i]); t++) {
+        next = shuffleArr([0, 1, 2, 3]);
+      }
+    }
+    return next;
+  }
+
+  function makeOptionPerms(prevMap) {
     const map = {};
     for (const q of QUESTIONS) {
-      map[q.id] = shuffleArr([0, 1, 2, 3]);
+      map[q.id] = shufflePermDifferent(prevMap ? prevMap[q.id] : null);
     }
     return map;
+  }
+
+  function makeChapterOrders() {
+    const orders = { 0: shuffleArr(QUESTIONS.map((q) => q.id)) };
+    for (const c of CHAPTERS) {
+      orders[c.num] = shuffleArr(QUESTIONS.filter((q) => q.chapter === c.num).map((q) => q.id));
+    }
+    return orders;
   }
 
   function defaultTimeForCount(count) {
@@ -1607,16 +1708,18 @@ function generateQrSvg(text, darkColor = '#0F2942', lightColor = '#FFFFFF') {
 
   function createInitialState() {
     const allIds = QUESTIONS.map((q) => q.id);
-    const mixed = shuffleArr(allIds);
-    const mock50 = shuffleArr(allIds).slice(0, 50);
     return {
       deck: 'chapters',
       chapter: 0, // 0 = all 280, 1..6 = chapter num
       mode: 'practice',
+      shuffleQuestions: true,
+      shuffleOptions: true,
       ballotFilter: 'all',
-      mixedOrder: mixed,
-      mock50Order: mock50,
-      optionPerms: makeOptionPerms(),
+      chapterOrders: makeChapterOrders(),
+      mixedOrder: shuffleArr(allIds),
+      mock50Order: shuffleArr(allIds).slice(0, 50),
+      wrongOrder: [],
+      optionPerms: makeOptionPerms(null),
       wrongIds: [],
       progress: {},
     };
@@ -1626,12 +1729,33 @@ function generateQrSvg(text, darkColor = '#0F2942', lightColor = '#FFFFFF') {
     const fresh = createInitialState();
     try {
       const rawStr = localStorage.getItem(STORAGE_KEY);
-      if (!rawStr) return fresh;
+      if (!rawStr) {
+        // Carry over wrongIds from v1 if present
+        const oldRaw = localStorage.getItem('tthcm_v1_state');
+        if (oldRaw) {
+          const old = JSON.parse(oldRaw);
+          if (Array.isArray(old?.wrongIds)) {
+            fresh.wrongIds = old.wrongIds.filter((id) => Q_BY_ID.has(id));
+            fresh.wrongOrder = shuffleArr(fresh.wrongIds);
+          }
+        }
+        return fresh;
+      }
       const saved = JSON.parse(rawStr);
       if (saved && typeof saved === 'object') {
         if (['chapters', 'mock50', 'mixed280', 'wrong'].includes(saved.deck)) fresh.deck = saved.deck;
         if (typeof saved.chapter === 'number' && saved.chapter >= 0 && saved.chapter <= 6) fresh.chapter = saved.chapter;
         if (['practice', 'exam'].includes(saved.mode)) fresh.mode = saved.mode;
+        if (typeof saved.shuffleQuestions === 'boolean') fresh.shuffleQuestions = saved.shuffleQuestions;
+        if (typeof saved.shuffleOptions === 'boolean') fresh.shuffleOptions = saved.shuffleOptions;
+        if (saved.chapterOrders && typeof saved.chapterOrders === 'object') {
+          for (const k of Object.keys(fresh.chapterOrders)) {
+            const arr = saved.chapterOrders[k];
+            if (Array.isArray(arr) && arr.length === fresh.chapterOrders[k].length && arr.every((id) => Q_BY_ID.has(id))) {
+              fresh.chapterOrders[k] = arr;
+            }
+          }
+        }
         if (Array.isArray(saved.mixedOrder) && saved.mixedOrder.length === QUESTIONS.length && saved.mixedOrder.every((id) => Q_BY_ID.has(id))) {
           fresh.mixedOrder = saved.mixedOrder;
         }
@@ -1646,6 +1770,9 @@ function generateQrSvg(text, darkColor = '#0F2942', lightColor = '#FFFFFF') {
         }
         if (Array.isArray(saved.wrongIds)) {
           fresh.wrongIds = saved.wrongIds.filter((id) => Q_BY_ID.has(id));
+        }
+        if (Array.isArray(saved.wrongOrder)) {
+          fresh.wrongOrder = saved.wrongOrder.filter((id) => fresh.wrongIds.includes(id));
         }
         if (saved.progress && typeof saved.progress === 'object') {
           fresh.progress = saved.progress;
@@ -1663,14 +1790,37 @@ function generateQrSvg(text, darkColor = '#0F2942', lightColor = '#FFFFFF') {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {}
   }
 
+  function getOptionPerm(qid) {
+    if (!state.shuffleOptions) return [0, 1, 2, 3];
+    if (!Array.isArray(state.optionPerms[qid]) || state.optionPerms[qid].length !== 4) {
+      state.optionPerms[qid] = shuffleArr([0, 1, 2, 3]);
+    }
+    return state.optionPerms[qid];
+  }
+
   function getDeckQuestionIds(deckId = state.deck, ch = state.chapter) {
     if (deckId === 'chapters') {
-      if (ch === 0) return QUESTIONS.map((q) => q.id);
-      return QUESTIONS.filter((q) => q.chapter === ch).map((q) => q.id);
+      const canonical = ch === 0
+        ? QUESTIONS.map((q) => q.id)
+        : QUESTIONS.filter((q) => q.chapter === ch).map((q) => q.id);
+      if (!state.shuffleQuestions) return canonical;
+      if (!Array.isArray(state.chapterOrders[ch]) || state.chapterOrders[ch].length !== canonical.length) {
+        state.chapterOrders[ch] = shuffleArr(canonical);
+      }
+      return state.chapterOrders[ch];
     }
     if (deckId === 'mock50') return state.mock50Order;
     if (deckId === 'mixed280') return state.mixedOrder;
-    return state.wrongIds.filter((id) => Q_BY_ID.has(id));
+    const validWrong = state.wrongIds.filter((id) => Q_BY_ID.has(id));
+    if (!state.shuffleQuestions) return validWrong;
+    // Keep shuffled wrongOrder synchronized with validWrong
+    const set = new Set(validWrong);
+    const kept = (state.wrongOrder || []).filter((id) => set.has(id));
+    const missing = validWrong.filter((id) => !kept.includes(id));
+    if (missing.length > 0 || kept.length !== validWrong.length) {
+      state.wrongOrder = kept.concat(shuffleArr(missing));
+    }
+    return state.wrongOrder;
   }
 
   function sessionKey() {
@@ -1757,7 +1907,7 @@ function generateQrSvg(text, darkColor = '#0F2942', lightColor = '#FFFFFF') {
     if (state.mode === 'practice' && prog.answers[qid] !== undefined) return;
 
     const q = Q_BY_ID.get(qid);
-    const perm = state.optionPerms[qid] || [0, 1, 2, 3];
+    const perm = getOptionPerm(qid);
     const origIdx = perm[displayPos];
     prog.answers[qid] = origIdx;
 
@@ -1804,20 +1954,48 @@ function generateQrSvg(text, darkColor = '#0F2942', lightColor = '#FFFFFF') {
   }
 
   function resetCurrentDeck() {
-    const ids = getDeckQuestionIds();
+    const prevIds = getDeckQuestionIds();
     if (state.deck === 'mixed280') {
       state.mixedOrder = shuffleArr(QUESTIONS.map((q) => q.id));
     } else if (state.deck === 'mock50') {
       state.mock50Order = shuffleArr(QUESTIONS.map((q) => q.id)).slice(0, 50);
+    } else if (state.deck === 'chapters') {
+      const canonical = state.chapter === 0
+        ? QUESTIONS.map((q) => q.id)
+        : QUESTIONS.filter((q) => q.chapter === state.chapter).map((q) => q.id);
+      state.chapterOrders[state.chapter] = shuffleArr(canonical);
+    } else if (state.deck === 'wrong') {
+      state.wrongOrder = shuffleArr(state.wrongIds.filter((id) => Q_BY_ID.has(id)));
     }
-    // Reshuffle A-B-C-D positions for the reset deck so answers stay fresh
-    for (const id of getDeckQuestionIds()) {
-      state.optionPerms[id] = shuffleArr([0, 1, 2, 3]);
+    // Reshuffle A-B-C-D positions to a genuinely new permutation
+    const nextIds = getDeckQuestionIds();
+    for (const id of nextIds) {
+      state.optionPerms[id] = shufflePermDifferent(state.optionPerms[id]);
     }
-    state.progress[sessionKey()] = createEmptyProgress(getDeckQuestionIds().length || ids.length);
+    state.progress[sessionKey()] = createEmptyProgress(nextIds.length || prevIds.length);
     saveState();
     syncTimer();
+    triggerKittyHop();
     render();
+  }
+
+  function triggerShuffleNow() {
+    const ids = getDeckQuestionIds();
+    if (!ids.length) return;
+    // Always ensure shuffling is turned on when user explicitly clicks "Tráo lại"
+    state.shuffleQuestions = true;
+    state.shuffleOptions = true;
+    const prog = currentProgress();
+    const answeredCount = ids.filter((id) => prog.answers[id] !== undefined).length;
+    if (answeredCount === 0) {
+      resetCurrentDeck();
+      return;
+    }
+    openConfirm(
+      'Tráo lộn xộn lại đề hiện tại?',
+      'Thứ tự câu hỏi và 4 đáp án A-B-C-D sẽ được tráo mới hoàn toàn, bắt đầu lượt làm mới từ câu 01.',
+      resetCurrentDeck
+    );
   }
 
   function openConfirm(title, message, onOk) {
@@ -2087,7 +2265,7 @@ function generateQrSvg(text, darkColor = '#0F2942', lightColor = '#FFFFFF') {
 
     const qid = ids[prog.index];
     const q = Q_BY_ID.get(qid);
-    const perm = state.optionPerms[qid] || [0, 1, 2, 3];
+    const perm = getOptionPerm(qid);
     const chosenOrig = prog.answers[qid];
     const hasChosen = chosenOrig !== undefined;
     const isFlagged = Boolean(prog.flags[qid]);
@@ -2253,6 +2431,21 @@ function generateQrSvg(text, darkColor = '#0F2942', lightColor = '#FFFFFF') {
     pBtn.className = 'mode-btn' + (state.mode === 'practice' ? ' active' : '');
     eBtn.className = 'mode-btn' + (state.mode === 'exam' ? ' exam-active' : '');
 
+    // Update Shuffle Bar state
+    const shQBtn = document.getElementById('btn-toggle-shuf-q');
+    const shQLbl = document.getElementById('lbl-shuf-q');
+    const forceShufQ = state.deck === 'mixed280' || state.deck === 'mock50';
+    const isShufQOn = forceShufQ ? true : state.shuffleQuestions;
+    shQBtn.className = 'shuf-pill' + (isShufQOn ? ' on' : '');
+    shQBtn.setAttribute('aria-pressed', String(isShufQOn));
+    shQLbl.textContent = isShufQOn ? 'Tráo câu: Bật' : 'Tráo câu: Tắt';
+
+    const shOBtn = document.getElementById('btn-toggle-shuf-opt');
+    const shOLbl = document.getElementById('lbl-shuf-opt');
+    shOBtn.className = 'shuf-pill' + (state.shuffleOptions ? ' on-teal' : '');
+    shOBtn.setAttribute('aria-pressed', String(state.shuffleOptions));
+    shOLbl.textContent = state.shuffleOptions ? 'Tráo A-B-C-D: Bật' : 'Tráo A-B-C-D: Tắt';
+
     renderChapterBar();
     const ids = getDeckQuestionIds();
     const prog = currentProgress();
@@ -2375,6 +2568,38 @@ function generateQrSvg(text, darkColor = '#0F2942', lightColor = '#FFFFFF') {
     syncTimer();
     render();
   });
+
+  document.getElementById('btn-toggle-shuf-q').addEventListener('click', () => {
+    if (state.deck === 'mixed280' || state.deck === 'mock50') {
+      triggerShuffleNow();
+      return;
+    }
+    state.shuffleQuestions = !state.shuffleQuestions;
+    if (state.shuffleQuestions) {
+      const canonical = state.chapter === 0
+        ? QUESTIONS.map((q) => q.id)
+        : QUESTIONS.filter((q) => q.chapter === state.chapter).map((q) => q.id);
+      if (state.deck === 'chapters') state.chapterOrders[state.chapter] = shuffleArr(canonical);
+      else if (state.deck === 'wrong') state.wrongOrder = shuffleArr(state.wrongIds.filter((id) => Q_BY_ID.has(id)));
+    }
+    const prog = currentProgress();
+    prog.index = 0;
+    saveState();
+    render();
+  });
+
+  document.getElementById('btn-toggle-shuf-opt').addEventListener('click', () => {
+    state.shuffleOptions = !state.shuffleOptions;
+    if (state.shuffleOptions) {
+      for (const id of getDeckQuestionIds()) {
+        state.optionPerms[id] = shufflePermDifferent(state.optionPerms[id]);
+      }
+    }
+    saveState();
+    render();
+  });
+
+  document.getElementById('btn-shuffle-now').addEventListener('click', triggerShuffleNow);
 
   document.getElementById('btn-prev').addEventListener('click', () => stepQuestion(-1));
   document.getElementById('btn-next').addEventListener('click', () => {
